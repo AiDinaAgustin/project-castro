@@ -17,11 +17,20 @@ Route::get('/', function () {
     return view('podcasts');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
-
 Route::get('/podcast', function () {
     return view('podcasts');
 });
+
+Route::get('/misteri', function () {
+    return view('misteri');
+});
+
+Route::get('/supranatural', function () {
+    return view('supranatural');
+});
+
+Route::get('/thriller', function () {
+    return view('thriller');
+});
+
 
