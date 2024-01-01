@@ -3,7 +3,7 @@
 @section('content')
     <!-- Acaramu -->
     <div class="mb-4">
-        <h3 class="text-2xl text-white font-bold mb-3">Acaramu</h3>
+        <h3 class="text-2xl text-white font-bold mb-3">Thriller Tranding</h3>
         <!-- Slider main container -->
         <div class="swiper">
           <!-- Additional required wrapper -->
