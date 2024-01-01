@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  {{-- buatkan link favicon --}}
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+    {{-- buatkan link fontawesome --}}
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <style>
@@ -73,12 +76,12 @@
           </div>
           <div class="Profile flex gap-3">
             <ul class="flex text-gray-400 font-bold gap-3 mr-6">
-              <li class="active"><a href="index.html">Buat Kamu</a></li>
-              <li><a href="misteri.html">Misteri</a></li>
-              <li><a href="supranatural.html">Supranatural</a></li>
-              <li><a href="thriller.html">Thriller</a></li>
+              <li class="active"><a href="/">Buat Kamu</a></li>
+              <li><a href="/misteri">Misteri</a></li>
+              <li><a href="/supranatural">Supranatural</a></li>
+              <li><a href="/thriller">Thriller</a></li>
             </ul>
-            <button class="bg-slate-500 rounded-lg text-lg text-white font-bold px-2"><a href="login.html">Login</a></button>
+            <button class="bg-yellow-500 rounded-lg text-lg text-white font-bold px-4 py-1"><a href="login.html">Login</a></button>
           </div>
         </header>
         <main class="w-full min-h-screen overflow-x-hidden">
