@@ -2,6 +2,7 @@
 
 use App\Models\Podcast;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PodcastController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,22 +31,10 @@ $blog_podcast = [
     
 ];
 
-Route::get('/', function () {
-    
-    return view('podcasts', [
-        "title" => "Podcast",
-        "podcasts" => Podcast::all()
-    ]);
-});
+Route::get('/', [PodcastController::class, 'index']);
 
 //halaman single podcast
-Route::get('/{slug}', function ($slug) {
-
-    return view('podcast', [
-        "title" => "Single Podcast",
-        "podcast" => Podcast::find($slug)
-    ]);
-});
+Route::get('/{slug}', [PodcastController::class, 'show']);
 
 Route::get('/podcast', function () {
     return view('podcasts', [
