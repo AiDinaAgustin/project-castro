@@ -24,4 +24,19 @@ class Podcast
     {
         return self::$blog_podcast;
     }
+
+    public static function find($slug)
+    {
+       $podcasts = self::$blog_podcast;
+
+       $podcast = [];
+
+         foreach($podcasts as $p){
+              if($p["slug"] === $slug){
+                $podcast = $p;
+              }
+         }
+
+        return $podcast;
+    }
 }
