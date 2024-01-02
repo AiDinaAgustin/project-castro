@@ -14,23 +14,33 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('podcasts');
+    return view('podcasts', [
+        "title" => "Podcast"
+    ]);
 });
 
 Route::get('/podcast', function () {
-    return view('podcasts');
+    return view('podcasts', [
+        "title" => "Podcast"
+    ]);
 });
 
 Route::get('/misteri', function () {
-    return view('misteri');
+    return view('misteri', [
+        "title" => "Misteri"
+    ]);
 });
 
 Route::get('/supranatural', function () {
-    return view('supranatural');
+    return view('supranatural', [
+        "title" => "Supranatural"
+    ]);
 });
 
 Route::get('/thriller', function () {
-    return view('thriller');
+    return view('thriller', [
+        "title" => "Thriller"
+    ]);
 });
 
 

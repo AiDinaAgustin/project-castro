@@ -55,7 +55,7 @@
       border-bottom: 2px solid #F9D80F;
     }
   </style>  
-  <title>Castro Studio</title>
+  <title>Castro Studio | {{ $title }}</title>
 </head>
 <body class="bg-black">
   <div class="relative my-5 mx-3">
@@ -76,10 +76,10 @@
           </div>
           <div class="Profile flex gap-3">
             <ul class="flex text-gray-400 font-bold gap-3 mr-6">
-              <li class="active"><a href="/">Buat Kamu</a></li>
-              <li><a href="/misteri">Misteri</a></li>
-              <li><a href="/supranatural">Supranatural</a></li>
-              <li><a href="/thriller">Thriller</a></li>
+              <li class="{{ ($title === "Podcast") ? 'active' : '' }}"><a href="/">Buat Kamu</a></li>
+              <li class="{{ ($title === "Misteri") ? 'active' : '' }}"><a href="/misteri">Misteri</a></li>
+              <li class="{{ ($title === "Supranatural") ? 'active' : '' }}"><a href="/supranatural">Supranatural</a></li>
+              <li class="{{ ($title === "Thriller") ? 'active' : '' }}"><a href="/thriller">Thriller</a></li>
             </ul>
             <button class="bg-yellow-500 rounded-lg text-lg text-white font-bold px-4 py-1"><a href="login.html">Login</a></button>
           </div>
