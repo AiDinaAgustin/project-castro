@@ -22,21 +22,13 @@ class Podcast
 
     public static function all()
     {
-        return self::$blog_podcast;
+        return collect(self::$blog_podcast);
     }
 
     public static function find($slug)
     {
-       $podcasts = self::$blog_podcast;
-
-       $podcast = [];
-
-         foreach($podcasts as $p){
-              if($p["slug"] === $slug){
-                $podcast = $p;
-              }
-         }
-
-        return $podcast;
+       $podcasts = static::all();
+    
+        return $podcasts->firstWhere('slug', $slug);
     }
 }
