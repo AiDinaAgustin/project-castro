@@ -177,7 +177,10 @@
           <!-- details -->
           <div class="text-gray-400 font-bold mb-10">
             <p class="text-lg mb-4">16 Desember 2023</p>
-            <p class="text-xl text-white mb-6">{{ $podcast["body"] }}</p>
+            <div class="text-xl text-white mb-6">
+              {!! $podcast->body !!}
+            </div>
+            
             <div class="genre">
               <ul class="flex justify-start items-center gap-3">
                 <li class="bg-zinc-700 py-2 px-4 rounded-full">Horror</li>
