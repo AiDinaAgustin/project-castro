@@ -142,7 +142,7 @@
                 <rect x="29.1666" y="6.25" width="12.5" height="37.5" rx="2" fill="white"/>
               </svg>
               <!-- title -->
-              <p>{{ $podcast["title"] }}</p>
+              <p>{{ $podcast->title }}</p>
               <!-- durations -->
               <p>1 Jam, 20 Menit</p>
             </div>

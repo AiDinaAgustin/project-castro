@@ -56,7 +56,7 @@
             <!-- Slides -->
             @foreach ($podcasts as $podcast)
             <div class="swiper-slide">
-                <a href="/{{ $podcast["slug"] }}">
+                <a href="/{{ $podcast->id }}">
                   <div class="cover-music bg-zinc-800 w-40 h-56 rounded-md p-2">
                     <div class="relative w-36">
                       <img class="w-full" src="assets/img/page1.jpg" alt="your music">
@@ -65,9 +65,9 @@
                       </div>
                     </div>
                     <div>
-                      <h4 class="truncate text-white text-base mb-2">{{ $podcast["title"] }}</h4>
-                      <p class="truncate text-slate-400 text-xs">{{ $podcast["body"] }}</p>
-                      <a href=""><p class="truncate text-slate-400 text-xs">By : {{ $podcast["author"] }}</p></a>
+                      <h4 class="truncate text-white text-base mb-2">{{ $podcast->title}}</h4>
+                      <p class="truncate text-slate-400 text-xs">{{ $podcast->body}}</p>
+                      <a href=""><p class="truncate text-slate-400 text-xs">By : {{ $podcast->author }}</p></a>
                     </div>
                   </div>
                 </a>
