@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class PodcastController extends Controller
 {
+    //untuk halaman seluruh podcast
     public function index()
     {
         return view('podcasts', [
@@ -15,6 +16,7 @@ class PodcastController extends Controller
         ]);
     }
 
+    //untuk halaman single podcast
     public function show($slug)
     {
         return view('podcast', [
