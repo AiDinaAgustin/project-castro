@@ -145,7 +145,7 @@
               <!-- title -->
               <p>{{ $podcast->title }}</p>
               <!-- durations -->
-              <p>1 Jam, 20 Menit</p>
+              <p>{{ $podcast->created_at->diffForHumans() }}</p>
             </div>
           </div>
           <!-- icon -->
