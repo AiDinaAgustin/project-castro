@@ -12,7 +12,7 @@ class PodcastController extends Controller
     {
         return view('podcasts', [
             "title" => "Podcast",
-            "podcasts" => Podcast::latest()
+            "podcasts" => Podcast::all()
         ]);
     }
 
