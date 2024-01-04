@@ -67,7 +67,6 @@
                     <div>
                       <h4 class="truncate text-white text-base mb-2">{{ $podcast->title}}</h4>
                       <div class="truncate text-slate-400 text-xs">{!! $podcast->body !!}</div>
-                      <a href=""><p class="truncate text-slate-400 text-xs">By : {{ $podcast->author }}</p></a>
                     </div>
                   </div>
                 </a>
