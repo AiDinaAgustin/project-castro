@@ -48,4 +48,12 @@ Route::get('/thriller', function () {
     ]);
 });
 
+//cari
+Route::get('/cari', function (Category $category) {
+    return view('search', [
+        'title' => "Search",
+        'categories' => Category::all()
+    ]);
+});
+
 

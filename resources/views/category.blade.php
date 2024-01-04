@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.layout')
 
 @section('content')
     <h2 class="text-4xl text-white font-bold mb-10">Cerita & Podcast {{ $category}} Khusus Buatmu</h2>
