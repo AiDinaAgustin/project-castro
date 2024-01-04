@@ -4,6 +4,7 @@ use App\Models\Podcast;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PodcastController;
 use App\Models\Category;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,14 @@ Route::get('/categories/{category:slug}', function (Category $category) {
         'title' => "Podcast by Category : $category->name",
         'podcasts' => $category->podcasts,
         'category' => $category->name
+    ]);
+});
+
+//halaman user orang
+Route::get('/authors/{user}', function (User $user) {
+    return view('author', [
+        'title' => "Podcast by Author : $user->name",
+        'podcasts' => $user->podcasts,
     ]);
 });
 
