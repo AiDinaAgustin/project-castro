@@ -48,7 +48,7 @@
     }
 
     .cover {
-      background-image: url(/assets/img/horor2.jpg);
+      /* background-image: url(/assets/img/horor2.jpg); */
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
@@ -132,7 +132,7 @@
         <main class="relative w-full h-full overflow-x-hidden">
           <!-- Main content -->
           <div class="relative">
-            <div class="cover"></div>
+            <div class="cover" style="background-image: url('https://source.unsplash.com/1000x270/?{{ $podcast->category->name }}');"> </div>
             <div class="absolute w-max bottom-10 start-1/2 -translate-x-1/2 flex flex-col justify-center items-center gap-5 text-2xl text-white font-bold">
               <img class="w-64 mb-4" src="https://source.unsplash.com/500x270/?{{ $podcast->category->name }}" alt="">
               <svg class="play_btn" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
