@@ -32,7 +32,7 @@ Route::get('/categories/{category:slug}', function (Category $category) {
 });
 
 //halaman user orang
-Route::get('/authors/{user}', function (User $user) {
+Route::get('/authors/{user:username}', function (User $user) {
     return view('author', [
         'title' => "Podcast by Author : $user->name",
         'podcasts' => $user->podcasts,
