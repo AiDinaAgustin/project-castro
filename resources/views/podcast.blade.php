@@ -196,7 +196,7 @@
                 <!-- title -->
                 <p>By : Dina</p>
                 <!-- durations -->
-                <p>{{ $podcast->category->name }}</p>
+                <p><a href="/categories/{{ $podcast->category->slug }}">{{ $podcast->category->name }}</a></p>
               </div>
             </div>
             <svg class="play_btn" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
