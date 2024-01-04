@@ -192,7 +192,7 @@
           <!-- Player Music  -->
           <div class="player w-full h-16 flex items-center justify-between px-4 absolute bg-zinc-700 bottom-5">
             <div class="flex gap-x-2">
-              <img class="w-[65px]" src="/assets/img/horor2.jpg" alt="">
+              <img class="w-[65px]" src="https://source.unsplash.com/500x270/?{{ $podcast->category->name }}" alt="">
               <div class="flex flex-col items-start text-white">
                 <!-- title -->
                 <a href="/authors/{{ $podcast->author->username }}"><p>{{ $podcast->author->name }}</p></a>
