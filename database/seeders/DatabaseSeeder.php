@@ -37,6 +37,8 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        Podcast::factory(10)->create();
+
         // User::create(
         //     [
         //         'name' => 'Dina',
@@ -45,14 +47,14 @@ class DatabaseSeeder extends Seeder
         //     ]
         // );
 
-        Podcast::create(
-            [
-                'user_id' => 1,
-                'category_id' => 1,
-                'title' => 'Web Development',
-                'slug' => 'web-development',
-                'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-            ]
-        );
+        // Podcast::create(
+        //     [
+        //         'user_id' => 1,
+        //         'category_id' => 1,
+        //         'title' => 'Web Development',
+        //         'slug' => 'web-development',
+        //         'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+        //     ]
+        // );
     }
 }
