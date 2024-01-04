@@ -34,7 +34,7 @@ $blog_podcast = [
 Route::get('/', [PodcastController::class, 'index']);
 
 //halaman single podcast
-Route::get('/{slug}', [PodcastController::class, 'show']);
+Route::get('/{podcast}', [PodcastController::class, 'show']);
 
 Route::get('/podcast', function () {
     return view('podcasts', [
