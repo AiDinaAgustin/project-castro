@@ -25,15 +25,15 @@ class DatabaseSeeder extends Seeder
 
         Category::create(
             [
-                'name' => 'Web',
-                'slug' => 'web'
+                'name' => 'Misteri',
+                'slug' => 'misteri'
             ]
         );
 
         Category::create(
             [
-                'name' => 'Mobile',
-                'slug' => 'mobile'
+                'name' => 'Horror',
+                'slug' => 'horror'
             ]
         );
 
