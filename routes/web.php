@@ -16,26 +16,10 @@ use App\Models\Category;
 |
 */
 
-$blog_podcast = [
-    [ 
-        "title" => "Podcast Pertama",
-        "slug" => "podcast-pertama",
-        "author" => "Rizky",
-        "body" => "Lorem ipsum dolor sit amet consectetur"
-    ],
-    [
-        "title" => "Podcast Kedua",
-        "slug" => "podcast-kedua",
-        "author" => "Dina",
-        "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa at sed magnam ratione, dolorum vero dolorem dicta quisquam non quod perspiciatis nobis impedit obcaecati suscipit sapiente! Et beatae ipsa minima consequuntur similique soluta possimus enim natus, ea rerum molestiae dicta qui obcaecati doloremque delectus iure totam omnis dolor atque tempora ratione dolorum nam. Quisquam voluptates quibusdam dolore rem voluptatibus! Minima, beatae quisquam quam cupiditate in voluptatum non accusamus corrupti ratione sit quasi saepe obcaecati reiciendis, itaque quo molestiae sequi necessitatibus?"
-    ],
-    
-];
-
 Route::get('/', [PodcastController::class, 'index']);
 
 //halaman single podcast
-Route::get('/{podcast:slug}', [PodcastController::class, 'show']);
+Route::get('/podcasts/{podcast:slug}', [PodcastController::class, 'show']);
 
 //route category
 Route::get('/categories/{category:slug}', function (Category $category) {
@@ -43,12 +27,6 @@ Route::get('/categories/{category:slug}', function (Category $category) {
         'title' => "Podcast by Category : $category->name",
         'podcasts' => $category->podcasts,
         'category' => $category->name
-    ]);
-});
-
-Route::get('/podcast', function () {
-    return view('podcasts', [
-        "title" => "Podcast"
     ]);
 });
 
