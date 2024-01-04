@@ -195,7 +195,7 @@
               <img class="w-[65px]" src="/assets/img/horor2.jpg" alt="">
               <div class="flex flex-col items-start text-white">
                 <!-- title -->
-                <p>By : Dina</p>
+                <p>By : {{ $podcast->user->name }}</p>
                 <!-- durations -->
                 <p><a href="/categories/{{ $podcast->category->slug }}">{{ $podcast->category->name }}</a></p>
               </div>
