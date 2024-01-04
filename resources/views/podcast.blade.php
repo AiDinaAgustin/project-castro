@@ -195,9 +195,9 @@
               <img class="w-[65px]" src="/assets/img/horor2.jpg" alt="">
               <div class="flex flex-col items-start text-white">
                 <!-- title -->
-                <p>By : {{ $podcast->user->name }}</p>
+                <a href="#"><p>{{ $podcast->user->name }}</p></a>
                 <!-- durations -->
-                <p><a href="/categories/{{ $podcast->category->slug }}">{{ $podcast->category->name }}</a></p>
+                <div class="truncate text-slate-400 text-xs mt-2"><a href="/categories/{{ $podcast->category->slug }}">{{ $podcast->category->name }}</a></div>
               </div>
             </div>
             <svg class="play_btn" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
