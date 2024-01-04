@@ -32,10 +32,10 @@ Route::get('/categories/{category:slug}', function (Category $category) {
 });
 
 //halaman user orang
-Route::get('/authors/{user:username}', function (User $user) {
+Route::get('/authors/{author:username}', function (User $author) {
     return view('author', [
-        'title' => "Podcast by Author : $user->name",
-        'podcasts' => $user->podcasts,
+        'title' => "Podcast by Author : $author->name",
+        'podcasts' => $author->podcasts,
     ]);
 });
 
