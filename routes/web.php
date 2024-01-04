@@ -3,6 +3,7 @@
 use App\Models\Podcast;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PodcastController;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,15 @@ Route::get('/', [PodcastController::class, 'index']);
 
 //halaman single podcast
 Route::get('/{podcast:slug}', [PodcastController::class, 'show']);
+
+//route category
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('category', [
+        'title' => "Podcast by Category : $category->name",
+        'podcasts' => $category->podcasts,
+        'category' => $category->name
+    ]);
+});
 
 Route::get('/podcast', function () {
     return view('podcasts', [
