@@ -65,4 +65,6 @@ Route::get('/cari', function (Category $category) {
     ]);
 });
 
+Route::get("/search",[PodcastController::class,'search']);
+
 
