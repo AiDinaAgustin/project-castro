@@ -17,7 +17,7 @@
       <li class="{{ ($title === "Supranatural") ? 'active' : '' }}"><a href="/supranatural">Supernatural</a></li>
       <li class="{{ ($title === "Thriller") ? 'active' : '' }}"><a href="/thriller">Thriller</a></li>
     </ul>
-    <button class="bg-yellow-500 rounded-lg text-lg text-white font-bold px-4 py-1"><a href="login.html">Login</a></button>
+    <button class="bg-yellow-500 rounded-lg text-lg text-white font-bold px-4 py-1"><a href="/login">Login</a></button>
   </div>
 </header>
 <main class="w-full min-h-screen overflow-x-hidden">

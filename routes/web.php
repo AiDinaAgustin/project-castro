@@ -1,10 +1,12 @@
 <?php
 
-use App\Models\Podcast;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PodcastController;
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Podcast;
+use App\Models\Category;
+use Illuminate\Auth\Events\Login;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PodcastController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,5 +72,8 @@ Route::get('/cari', function (Category $category) {
 });
 
 Route::get("/search",[PodcastController::class,'search']);
+
+//login
+Route::get('/login', [LoginController::class, 'index']);
 
 
