@@ -22,6 +22,19 @@ class PodcastController extends Controller
         ]);
     }
 
+    public function tampil()
+    {
+        $podcasts = Podcast::latest();
+
+        if (request('search')) {
+            $podcasts->where('title', 'like', '%' . request('search') . '%');
+        }
+        return view('tampil', [
+            "title" => "Podcast",
+            "podcasts" => $podcasts->get()
+        ]);
+    }
+
     //search podcast
     public function search(Request $request){
  

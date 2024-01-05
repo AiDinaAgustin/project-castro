@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+<main class="w-full min-h-screen overflow-x-hidden">
     <!-- Acaramu -->
     <div class="mb-4">
         <h3 class="text-2xl text-white font-bold mb-3">Misteri Tranding</h3>
@@ -143,4 +144,5 @@
           <div class="swiper-button-next"></div>
         </div>
     </div>
+</main>
 @endsection

@@ -45,6 +45,10 @@ Route::get('/misteri', function () {
     ]);
 });
 
+//untuk cari podcast
+
+Route::get('/podcasts', [PodcastController::class, 'tampil']);
+
 Route::get('/supranatural', function () {
     return view('supranatural', [
         "title" => "Supranatural"
