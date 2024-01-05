@@ -7,6 +7,7 @@ use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PodcastController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,5 +76,9 @@ Route::get("/search",[PodcastController::class,'search']);
 
 //login
 Route::get('/login', [LoginController::class, 'index']);
+
+//register
+Route::get('/register', [RegisterController::class, 'index']);
+
 
 
