@@ -11,9 +11,14 @@ class PodcastController extends Controller
     //untuk halaman seluruh podcast
     public function index()
     {
+        $podcasts = Podcast::latest();
+
+        if (request('search')) {
+            $podcasts->where('title', 'like', '%' . request('search') . '%');
+        }
         return view('podcasts', [
             "title" => "Podcast",
-            "podcasts" => Podcast::all()
+            "podcasts" => $podcasts->get()
         ]);
     }
 

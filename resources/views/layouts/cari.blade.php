@@ -61,19 +61,21 @@
               
               <div class="col-lg-3"></div>
                   <div class="col-md-12">
-                      <div class="form-group">
-                        <div class="relative search-btn w-72 h-8 bg-black rounded-full overflow-hidden px-6">
-                          <a href="/cari">
-                            <div class="absolute translate-y-2/4 top-0 left-4">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-                              </svg>
-                            </div>
-                          </a>
-                            <input class="w-full h-full ml-5 text-white bg-transparent outline-none" type="text" name="search" id="search" placeholder="What do you want to listen?" onfocus="this.value=''">
+                      <form action="/">
+                        <div class="input-group">
+                          <div class="relative search-btn w-72 h-8 bg-black rounded-full overflow-hidden px-6">
+                            <a href="/cari">
+                              <div class="absolute translate-y-2/4 top-0 left-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                                </svg>
+                              </div>
+                            </a>
+                              <input class="w-full h-full ml-5 text-white bg-transparent outline-none" type="text" name="search" placeholder="What do you want to listen?">
+                          </div>
+                          {{-- <input type="text" name="search" id="search" placeholder="Enter search name" class="form-control" onfocus="this.value=''"> --}}
                         </div>
-                        {{-- <input type="text" name="search" id="search" placeholder="Enter search name" class="form-control" onfocus="this.value=''"> --}}
-                      </div>
+                      </form>
                       <div id="search_list"></div>
                   </div>
               <div class="col-lg-3"></div>
