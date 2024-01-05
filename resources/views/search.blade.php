@@ -5,7 +5,7 @@
 <header class="sticky top-0 bg-zinc-900 z-50 flex items-center justify-between mb-4 py-2">
   <div class="button-nav flex items-center">
     <div class="row">
-      <div class="col-lg-3"></div>
+      
       <div class="col-md-12">
         <div class="input-group relative">
           <div class="relative search-btn w-96 h-8 bg-black rounded-full overflow-hidden px-6">
