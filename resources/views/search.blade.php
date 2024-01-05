@@ -34,7 +34,7 @@
                   {{-- <input type="text" name="search" id="search" placeholder="Enter search name" class="form-control" onfocus="this.value=''"> --}}
                 </div>
               </form>
-              <div id="search_list" class="py-12"></div>
+              <div id="search_list" class="py-2"></div>
             </div>
           <div class="col-lg-3"></div>
       </div>

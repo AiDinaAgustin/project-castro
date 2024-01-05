@@ -36,40 +36,78 @@ class PodcastController extends Controller
     }
 
     //search podcast
-    public function search(Request $request)
+//     public function search(Request $request)
+// {
+//     if ($request->ajax()) {
+//         $data = Podcast::where('id', 'like', '%' . $request->search . '%')
+//             ->orWhere('title', 'like', '%' . $request->search . '%')
+//             ->orWhere('body', 'like', '%' . $request->search . '%')
+//             ->get();
+
+//         $output = '';
+
+//         if (count($data) > 0) {
+//             foreach ($data as $row) {
+//                 $output .= '
+                    
+//                         <div class="player w-full h-16 flex items-center justify-between px-4 absolute bg-zinc-700 bottom-5">
+//                             <div class="flex gap-x-2">
+//                                 <a href="/podcasts/' . $row->slug . '">
+//                                     <img class="w-[65px]" src="https://source.unsplash.com/500x300/?' . $row->category->name . '" alt="">
+//                                     <div class="flex flex-col items-start text-white">
+//                                         <!-- title -->
+//                                         <a href="/authors/' . $row->author->username . '"><p>' . $row->author->name . '</p></a>
+//                                         <!-- durations -->
+//                                         <div class="truncate text-slate-400 text-xs mt-2"><a href="/categories/' . $row->category->slug . '">' . $row->category->name . '</a></div>
+//                                     </div>
+//                                 </a>
+//                             </div>
+                            
+//                         </div>
+//                     ';
+//             }
+//         } else {
+//             $output .= 'No results';
+//         }
+
+//         return $output;
+//     }
+// }
+
+public function search(Request $request)
 {
     if ($request->ajax()) {
+
         $data = Podcast::where('id', 'like', '%' . $request->search . '%')
             ->orWhere('title', 'like', '%' . $request->search . '%')
-            ->orWhere('body', 'like', '%' . $request->search . '%')
-            ->get();
+            ->orWhere('body', 'like', '%' . $request->search . '%')->get();
 
         $output = '';
-
         if (count($data) > 0) {
             foreach ($data as $row) {
                 $output .= '
-                    
-                        <div class="player w-full h-16 flex items-center justify-between px-4 absolute bg-zinc-700 bottom-5">
-                            <div class="flex gap-x-2">
-                                <a href="/podcasts/' . $row->slug . '">
-                                    <img class="w-[65px]" src="https://source.unsplash.com/500x300/?' . $row->category->name . '" alt="">
-                                    <div class="flex flex-col items-start text-white">
-                                        <!-- title -->
-                                        <a href="/authors/' . $row->author->username . '"><p>' . $row->author->name . '</p></a>
-                                        <!-- durations -->
-                                        <div class="truncate text-slate-400 text-xs mt-2"><a href="/categories/' . $row->category->slug . '">' . $row->category->name . '</a></div>
+                                    <div class="swiper-slide">
+                        <a href="/podcasts/' . $row->slug . '">
+                            <div class="cover-music bg-zinc-800 w-full h-full px-2 rounded-md p-2 mb-2 flex items-center"> <!-- Added flex class -->
+                                <div class="w-10 mr-2"> <!-- Added margin class -->
+                                    <img class="w-full" src="https://source.unsplash.com/400x400/?' . $row->category->name . '" alt="your music">
+                                    <div class="play-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
                                     </div>
-                                </a>
+                                </div>
+                                <div class="flex-grow"> <!-- Added flex-grow class -->
+                                    <h4 class="truncate text-white text-base mb-2">' . $row->title . '</h4>
+                                    <div class="truncate text-slate-400 text-xs">Podcast</div>
+                                </div>
                             </div>
-                            
-                        </div>
+                        </a>
+                    </div>
+
                     ';
             }
         } else {
             $output .= 'No results';
         }
-
         return $output;
     }
 }
