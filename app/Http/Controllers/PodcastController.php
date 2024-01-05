@@ -88,7 +88,7 @@ public function search(Request $request)
                 $output .= '
                                     <div class="swiper-slide">
                         <a href="/podcasts/' . $row->slug . '">
-                            <div class="cover-music bg-zinc-800 w-full h-full px-2 rounded-md p-2 mb-2 flex items-center"> <!-- Added flex class -->
+                            <div class="cover-music bg-zinc-800 w-full px-2 rounded-md p-2 mb-2 flex items-center"> <!-- Added flex class -->
                                 <div class="w-10 mr-2"> <!-- Added margin class -->
                                     <img class="w-full" src="https://source.unsplash.com/400x400/?' . $row->category->name . '" alt="your music">
                                     <div class="play-btn">
