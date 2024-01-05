@@ -19,7 +19,7 @@
                 </svg>
               </div>
             </a>
-            <input class="w-full h-full ml-5 text-white bg-transparent outline-none" type="text" name="search" id="search" placeholder="What do you want to listen?" onfocus="this.value=''" value="{{ request('search') }}">
+            <input class="w-full h-full ml-5 text-white bg-transparent outline-none" type="text" name="search" id="search" placeholder="What do you want to listen?" onfocus="toggleContentVisibility(true)" onblur="toggleContentVisibility(false)" value="{{ request('search') }}">
             <button class="absolute top-2 right-2 text-white cursor-pointer" onclick="clearSearch()">
               <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -38,9 +38,14 @@
   function clearSearch() {
     document.getElementById('search').value = '';
   }
+
+  function toggleContentVisibility(isSearchFocused) {
+    var mainContent = document.getElementById('main-content');
+    mainContent.style.display = isSearchFocused ? 'none' : 'block';
+  }
 </script>
 
-<main class="w-full min-h-screen overflow-x-hidden">
+<main class="w-full min-h-screen overflow-x-hidden" id="main-content">
   <div class="mb-4">
     <h3 class="text-2xl text-white font-bold mb-3">Jelajah</h3>
     <div class="flex flex-wrap gap-4 text-xl text-white font-bold">
