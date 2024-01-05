@@ -100,7 +100,23 @@
 </script>
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+      $('#search').on('keyup',function(){
+          var query= $(this).val(); 
+          $.ajax({
+              url:"search",
+              type:"GET",
+              data:{'search':query},
+              success:function(data){ 
+                  $('#search_list').html(data);
+              }
+          });
+           //end of ajax call
+      });
+  });
+</script>
 <!-- Initialize Swiper -->
 <script>
   const mySwiper = new Swiper('.mySwiper', {

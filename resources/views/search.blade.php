@@ -29,15 +29,33 @@
                       <div class="absolute translate-y-2/4 top-0 left-4">
                         <svg class="h-4 w-4 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="5" y1="12" x2="19" y2="12" />  <line x1="5" y1="12" x2="11" y2="18" />  <line x1="5" y1="12" x2="11" y2="6" /></svg>                      </div>
                     </a>
-                      <input class="w-full h-full ml-5 text-white bg-transparent outline-none" type="text" name="search" placeholder="What do you want to listen?">
+                      <input class="w-full h-full ml-5 text-white bg-transparent outline-none" type="text" name="search" id="search" placeholder="What do you want to listen?" onfocus="this.value=''">
                   </div>
                   {{-- <input type="text" name="search" id="search" placeholder="Enter search name" class="form-control" onfocus="this.value=''"> --}}
                 </div>
               </form>
+              <div id="search_list" class="py-12"></div>
+            </div>
+          <div class="col-lg-3"></div>
+      </div>
+      {{-- <div class="col-lg-3"></div>
+          <div class="col-md-12">
+              <form action="/podcasts">
+                <div class="input-group">
+                  <div class="relative search-btn w-72 h-8 bg-black rounded-full overflow-hidden px-6">
+                    <a href="/cari">
+                      <div class="absolute translate-y-2/4 top-0 left-4">
+                        <svg class="h-4 w-4 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="5" y1="12" x2="19" y2="12" />  <line x1="5" y1="12" x2="11" y2="18" />  <line x1="5" y1="12" x2="11" y2="6" /></svg>                      </div>
+                    </a>
+                      <input class="w-full h-full ml-5 text-white bg-transparent outline-none" type="text" name="search" placeholder="What do you want to listen?">
+                  </div>
+                  <input type="text" name="search" id="search" placeholder="Enter search name" class="form-control" onfocus="this.value=''">
+                </div>
+              </form>
               <div id="search_list"></div>
-          </div>
-      <div class="col-lg-3"></div>
-    </div>
+            </div>
+          <div class="col-lg-3"></div>
+      </div> --}}
   </div>
 </header>
 <main class="w-full min-h-screen overflow-x-hidden">
