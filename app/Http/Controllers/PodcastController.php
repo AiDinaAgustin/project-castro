@@ -80,6 +80,11 @@ public function search(Request $request)
 {
     if ($request->ajax()) {
 
+        $searchTerm = $request->search;
+        if (empty($searchTerm)) {
+            return '';
+        }
+
         // Search in Podcasts
         $podcastData = Podcast::where('id', 'like', '%' . $request->search . '%')
             ->orWhere('title', 'like', '%' . $request->search . '%')
@@ -158,7 +163,9 @@ public function search(Request $request)
         }
 
         if (empty($output)) {
-            $output .= 'No results';
+            $output .= '
+            <div class="text-white">No results
+            </div>';
         }
 
         return $output;
