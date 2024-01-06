@@ -23,6 +23,11 @@
             <div class="mb-3">
                 <label for="name" class="form-label text-lg text-white">Name</label>
                 <input type="text" class="form-control rounded-md @error('name') is-invalid @enderror" id="name" name="name">
+                @error('name')
+                <div class="invalid-feedback">
+                  Please choose a name.
+                </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="username" class="form-label text-lg text-white">Username</label>
