@@ -15,32 +15,33 @@
   </header>
   <main class="w-10/12 mx-auto">
     <form class="mx-auto" action="/register" method="post">
+      @csrf
       <div class="form-group flex flex-col gap-2 mb-3">
         <label class="text-lg text-white" for="name">Name </label>
-        <input class="w-full rounded-md outline-yellow-700 p-2" type="text" id="name">
+        <input class="w-full rounded-md outline-yellow-700 p-2" type="text" id="name" name="name">
       </div>
       <div class="form-group flex flex-col gap-2 mb-3">
         <label class="text-lg text-white" for="username">Username</label>
-        <input class="w-full rounded-md outline-yellow-700 p-2" type="text" id="username">
+        <input class="w-full rounded-md outline-yellow-700 p-2" type="text" id="username" name="username">
       </div>
       <div class="form-group flex flex-col gap-2 mb-3">
         <label class="text-lg text-white" for="email">Email</label>
-        <input class="w-full rounded-md outline-yellow-700 p-2" type="email" id="email">
+        <input class="w-full rounded-md outline-yellow-700 p-2" type="email" id="email" name="email">
       </div>
       <div class="form-group flex flex-col gap-2 mb-3">
         <label class="text-lg text-white" for="Password">Password</label>
-        <input class="w-full rounded-md outline-yellow-700 p-2" type="password" id="Password">
+        <input class="w-full rounded-md outline-yellow-700 p-2" type="password" id="Password" name="password">
       </div>
       <div class="form-group flex flex-col gap-2 mb-3">
         <label class="text-lg text-white" for="gender">Gender</label>
-        <select class="w-full rounded-md outline-yellow-700 p-2" type="text" id="gender">
-          <option value="">Male</option>
-          <option value="">Female</option>
+        <select class="w-full rounded-md outline-yellow-700 p-2" type="text" id="gender" name="gender">
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
         </select>
       </div>
       <div class="form-group flex flex-col gap-2 mb-6">
         <label class="text-lg text-white" for="birth">Birth</label>
-        <input class="w-full rounded-md outline-yellow-700 p-2" type="date" id="birth">
+        <input class="w-full rounded-md outline-yellow-700 p-2" type="date" id="birth" name="birth">
       </div>
       <div class="w-full flex justify-end">
         <button class="bg-yellow-400 py-2 px-4 rounded-md text-white" type="submit">Daftar</button>

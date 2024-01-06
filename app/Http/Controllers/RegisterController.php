@@ -12,4 +12,9 @@ class RegisterController extends Controller
             "title" => "Register"
         ]);
     }
+
+    public function store()
+    {
+       return request()->all();
+    }
 }
