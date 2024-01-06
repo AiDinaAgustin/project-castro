@@ -77,8 +77,11 @@ Route::get("/search",[PodcastController::class,'search']);
 //login
 Route::get('/login', [LoginController::class, 'index']);
 
-//register
+//register menampilkan halaman register
 Route::get('/register', [RegisterController::class, 'index']);
+
+//register post data
+Route::post('/register', [RegisterController::class, 'store']);
 
 
 

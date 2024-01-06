@@ -17,23 +17,26 @@
     <form class="mx-auto" action="/register" method="post">
       <div class="form-group flex flex-col gap-2 mb-3">
         <label class="text-lg text-white" for="name">Name </label>
-        <input class="w-full rounded-md outline-yellow-700 p-2" type="text" id="name" placeholder="Alexandra">
+        <input class="w-full rounded-md outline-yellow-700 p-2" type="text" id="name">
       </div>
       <div class="form-group flex flex-col gap-2 mb-3">
         <label class="text-lg text-white" for="username">Username</label>
-        <input class="w-full rounded-md outline-yellow-700 p-2" type="text" id="username" placeholder="Alexandra">
+        <input class="w-full rounded-md outline-yellow-700 p-2" type="text" id="username">
       </div>
       <div class="form-group flex flex-col gap-2 mb-3">
         <label class="text-lg text-white" for="email">Email</label>
-        <input class="w-full rounded-md outline-yellow-700 p-2" type="email" id="email" placeholder="Alexandra@gmail.com">
+        <input class="w-full rounded-md outline-yellow-700 p-2" type="email" id="email">
       </div>
       <div class="form-group flex flex-col gap-2 mb-3">
         <label class="text-lg text-white" for="Password">Password</label>
-        <input class="w-full rounded-md outline-yellow-700 p-2" type="password" id="Password" placeholder="Alex12345">
+        <input class="w-full rounded-md outline-yellow-700 p-2" type="password" id="Password">
       </div>
       <div class="form-group flex flex-col gap-2 mb-3">
-        <label class="text-lg text-white" for="gender">Gender (Male/Female)</label>
-        <input class="w-full rounded-md outline-yellow-700 p-2" type="text" id="gender" placeholder="Female">
+        <label class="text-lg text-white" for="gender">Gender</label>
+        <select class="w-full rounded-md outline-yellow-700 p-2" type="text" id="gender">
+          <option value="">Male</option>
+          <option value="">Female</option>
+        </select>
       </div>
       <div class="form-group flex flex-col gap-2 mb-6">
         <label class="text-lg text-white" for="birth">Birth</label>
