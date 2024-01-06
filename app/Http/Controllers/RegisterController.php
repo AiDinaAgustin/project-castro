@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Carbon\Carbon;
 
+//cara agar flash tidak merah
+use Illuminate\Support\Facades\Session;
+
+
+
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -28,7 +33,7 @@ class RegisterController extends Controller
        ]);
 
        User::create($validatedData);
-
-       return redirect('/login')->with('success', 'Registration success, please login');
+       
+       return redirect('/login')->with('success', 'Registrasi berhasil! Silakan login.');
     }
 }
