@@ -83,5 +83,8 @@ Route::get('/register', [RegisterController::class, 'index']);
 //register post data
 Route::post('/register', [RegisterController::class, 'store']);
 
+//login post data
+Route::post('/login', [LoginController::class, 'authenticate']);
+
 
 
