@@ -14,7 +14,7 @@
     <p>Daftar Akun</p>
   </header>
   <main class="w-10/12 mx-auto">
-    <form class="mx-auto" action="" method="post">
+    <form class="mx-auto" action="/register" method="post">
       <div class="form-group flex flex-col gap-2 mb-3">
         <label class="text-lg text-white" for="name">Name </label>
         <input class="w-full rounded-md outline-yellow-700 p-2" type="text" id="name" placeholder="Alexandra">
