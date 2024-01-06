@@ -22,7 +22,7 @@
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label text-lg text-white">Name</label>
-                <input type="text" class="form-control rounded-md is-invalid" id="name" name="name">
+                <input type="text" class="form-control rounded-md @error('name') is-invalid @enderror" id="name" name="name">
             </div>
             <div class="mb-3">
                 <label for="username" class="form-label text-lg text-white">Username</label>
@@ -48,7 +48,7 @@
                 <input type="date" class="form-control rounded-md" id="birth" name="birth">
             </div>
             <div class="w-full d-flex justify-content-end">
-                <button class="btn btn-warning text-white" type="submit">Daftar</button>
+                <button class="btn btn-warning bg-yellow-500 text-white" type="submit">Daftar</button>
             </div>
         </form>
     </main>
