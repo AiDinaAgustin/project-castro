@@ -22,7 +22,7 @@
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label text-lg text-white">Name</label>
-                <input type="text" class="form-control rounded-md @error('name') is-invalid @enderror" id="name" name="name" required>
+                <input type="text" class="form-control rounded-md @error('name') is-invalid @enderror" id="name" name="name" required value="{{ old('name') }}">
                 @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -31,7 +31,7 @@
             </div>
             <div class="mb-3">
                 <label for="username" class="form-label text-lg text-white">Username</label>
-                <input type="text" class="form-control rounded-md @error('username') is-invalid @enderror" id="username" name="username" required>
+                <input type="text" class="form-control rounded-md @error('username') is-invalid @enderror" id="username" name="username" required value="{{ old('username') }}">
                 @error('username')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -40,7 +40,7 @@
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label text-lg text-white">Email</label>
-                <input type="email" class="form-control rounded-md @error('email') is-invalid @enderror" id="email" name="email" required>
+                <input type="email" class="form-control rounded-md @error('email') is-invalid @enderror" id="email" name="email" required value="{{ old('email') }}">
                 @error('email')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -49,7 +49,7 @@
             </div>
             <div class="mb-3">
                 <label for="Password" class="form-label text-lg text-white">Password</label>
-                <input type="password" class="form-control rounded-md @error('password') is-invalid @enderror" id="Password" name="password" required>
+                <input type="password" class="form-control rounded-md @error('password') is-invalid @enderror" id="Password" name="password">
                 @error('password')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -58,14 +58,14 @@
             </div>
             <div class="mb-3">
                 <label for="gender" class="form-label text-lg text-white">Gender</label>
-                <select class="form-select rounded-md" id="gender" name="gender">
+                <select class="form-select rounded-md" id="gender" name="gender" value="{{ old('gender') }}">
                     <option value="MALE">Male</option>
                     <option value="FEMALE">Female</option>
                 </select>
             </div>
             <div class="mb-6">
                 <label for="birth" class="form-label text-lg text-white">Birth</label>
-                <input type="date" class="form-control rounded-md @error('birth') is-invalid @enderror" id="birth" name="birth" required>
+                <input type="date" class="form-control rounded-md @error('birth') is-invalid @enderror" id="birth" name="birth" required value="{{ old('birth') }}">
                 @error('birth')
                     <div class="invalid-feedback">
                         {{ $message }}
