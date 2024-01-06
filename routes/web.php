@@ -75,7 +75,7 @@ Route::get('/cari', function (Category $category) {
 Route::get("/search",[PodcastController::class,'search']);
 
 //login
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 
 //register menampilkan halaman register
 Route::get('/register', [RegisterController::class, 'index']);
