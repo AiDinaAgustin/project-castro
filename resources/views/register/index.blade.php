@@ -24,22 +24,37 @@
                 <label for="name" class="form-label text-lg text-white">Name</label>
                 <input type="text" class="form-control rounded-md @error('name') is-invalid @enderror" id="name" name="name">
                 @error('name')
-                <div class="invalid-feedback">
-                  Please choose a name.
-                </div>
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="username" class="form-label text-lg text-white">Username</label>
-                <input type="text" class="form-control rounded-md" id="username" name="username">
+                <input type="text" class="form-control rounded-md @error('username') is-invalid @enderror" id="username" name="username">
+                @error('username')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label text-lg text-white">Email</label>
-                <input type="email" class="form-control rounded-md" id="email" name="email">
+                <input type="email" class="form-control rounded-md @error('email') is-invalid @enderror" id="email" name="email">
+                @error('email')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="Password" class="form-label text-lg text-white">Password</label>
-                <input type="password" class="form-control rounded-md" id="Password" name="password">
+                <input type="password" class="form-control rounded-md @error('password') is-invalid @enderror" id="Password" name="password">
+                @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="gender" class="form-label text-lg text-white">Gender</label>
@@ -50,7 +65,12 @@
             </div>
             <div class="mb-6">
                 <label for="birth" class="form-label text-lg text-white">Birth</label>
-                <input type="date" class="form-control rounded-md" id="birth" name="birth">
+                <input type="date" class="form-control rounded-md @error('birth') is-invalid @enderror" id="birth" name="birth">
+                @error('birth')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="w-full d-flex justify-content-end">
                 <button class="btn btn-warning bg-yellow-500 text-white" type="submit">Daftar</button>
