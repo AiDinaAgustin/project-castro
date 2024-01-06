@@ -18,11 +18,12 @@
             {{ session('success') }}
         </div>
       @endif
-      <form class="flex flex-col" action="" method="post">
+      <form class="flex flex-col" action="/login" method="post">
+        @csrf
         <h3 class="text-4xl text-yellow-400 text-center font-bold mb-6">Masuk</h3> 
         <div class="form-group flex flex-col gap-2 mb-3">
           <label class="text-lg text-yellow-400" for="email">Masukkan Email</label>
-          <input class="w-80 rounded-md p-2" type="email" id="email">
+          <input class="w-80 rounded-md p-2" type="email" id="email" autofocus>
         </div>
         <div class="form-group flex flex-col gap-2 mb-3">
           <label class="text-lg text-yellow-400" for="password">Masukkan Password</label>
