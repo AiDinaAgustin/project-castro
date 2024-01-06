@@ -19,7 +19,7 @@
     </ul>
     @auth
 
-    <button class="bg-yellow-500 rounded-lg text-lg text-white font-bold px-4 py-1"><a href="/login">Logout</a></button>   
+    <button class="bg-yellow-500 rounded-lg text-lg text-white font-bold px-4 py-1"><a href="/logout">Logout</a></button>   
     
     @else
     

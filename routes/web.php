@@ -86,5 +86,9 @@ Route::post('/register', [RegisterController::class, 'store']);
 //login post data
 Route::post('/login', [LoginController::class, 'authenticate']);
 
+//logout
+Route::post('/logout', [LoginController::class, 'logout']);
+
+
 
 
