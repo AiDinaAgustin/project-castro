@@ -23,7 +23,12 @@
         <h3 class="text-4xl text-yellow-400 text-center font-bold mb-6">Masuk</h3> 
         <div class="form-group flex flex-col gap-2 mb-3">
           <label class="text-lg text-yellow-400" for="email">Masukkan Email</label>
-          <input class="w-80 rounded-md p-2" type="email" id="email" name="email" autofocus required>
+          <input class="w-80 rounded-md p-2 @error('email') is-invalid @enderror" type="email" id="email" name="email" autofocus required value="{{ old('email') }}">
+          @error('email')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+          @enderror
         </div>
         <div class="form-group flex flex-col gap-2 mb-3">
           <label class="text-lg text-yellow-400" for="password">Masukkan Password</label>
