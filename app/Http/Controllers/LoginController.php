@@ -28,4 +28,14 @@ class LoginController extends Controller
 
         return back()->with('loginError', 'Login failed! Please try again later.');
     }
+
+    public function logout(Request $request)
+    {
+        auth()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerate();
+        return redirect('/');
+    }
 }
