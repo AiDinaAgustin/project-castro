@@ -19,7 +19,11 @@
     </ul>
     @auth
 
-    <button class="bg-yellow-500 rounded-lg text-lg text-white font-bold px-4 py-1"><a href="/logout">LOGOUT</a></button>   
+    <form action="/logout" method="post">
+        @csrf
+      <button class="bg-yellow-500 rounded-lg text-lg text-white font-bold px-4 py-1" type="submit">LOGOUT</button>
+    </form>
+       
     
     @else
     
