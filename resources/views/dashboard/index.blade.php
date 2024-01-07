@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="mb-4">
-  <h3 class="text-2xl text-white font-bold mb-3" id="timeDisplay">Loading ...</h3>
+  <h3 class="text-2xl text-white font-bold mb-3">Welcome back, {{ auth()->user()->name }}</h3>
   <div class="flex flex-wrap gap-4 text-xl text-white font-bold">
     <div class="relative overflow-hidden bg-pink-600 w-64 h-24 rounded-lg p-2">
       <p>Dibuat untuk kamu</p>

@@ -23,7 +23,7 @@ class LoginController extends Controller
         
         if (auth()->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->with('loginError', 'Login failed! Please try again later.');
@@ -36,6 +36,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerate();
+
         return redirect('/');
     }
 }
