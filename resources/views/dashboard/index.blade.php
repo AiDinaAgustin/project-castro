@@ -60,42 +60,7 @@
   @include('dashboard.layouts.header')
   <main class="w-full min-h-screen flex">
     <!-- Main content -->
-    <aside class="w-full sm:w-36 md:w-64 px-4">
-      <ul class="flex flex-col gap-4 items-center md:items-start text-lg text-white font-bold">
-        <a href="index.html">
-          <li class="flex items-center gap-3">
-            <img src="../assets/img/Home.png" alt="" width="35px">
-            <span class="hidden md:block text-2xl">
-              Dashboard
-            </span>
-          </li>
-        </a>
-        <a href="podcast.html">
-          <li class="flex items-center gap-3">
-            <img src="../assets/img/Paper.png" alt="" width="35px">
-            <span class="hidden md:block text-2xl">
-              Podcast
-            </span>
-          </li>
-        </a>
-        <a href="user.html">
-          <li class="flex items-center gap-3">
-            <img src="../assets/img/Profile.png" alt="" width="35px">
-            <span class="hidden md:block text-2xl">
-              User
-            </span>
-          </li>
-        </a>
-        <a href="live.html">
-          <li class="flex items-center gap-3">
-            <img src="../assets/img/Video.png" alt="" width="35px">
-            <span class="hidden md:block text-2xl">
-              Live
-            </span>
-          </li>
-        </a>
-      </ul>
-    </aside>
+    @include('dashboard.layouts.aside')
     <div class="mb-4">
       <h3 class="text-2xl text-white font-bold mb-3" id="timeDisplay">Loading ...</h3>
       <div class="flex flex-wrap gap-4 text-xl text-white font-bold">
