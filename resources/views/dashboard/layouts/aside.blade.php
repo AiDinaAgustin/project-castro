@@ -8,7 +8,7 @@
           </span>
         </li>
       </a>
-      <a href="#">
+      <a href="/dashboard/podcasts">
         <li class="flex items-center gap-3">
           <img src="../assets/img/Paper.png" alt="" width="35px">
           <span class="hidden md:block text-2xl">
