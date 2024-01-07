@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PodcastController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardPodcastController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,9 @@ Route::get('/dashboard', function () {
         'title' => 'Dashboard'
     ]);
 })->middleware('auth');
+
+//dashboard podcast route resource  
+Route::resource('/dashboard/podcasts', DashboardPodcastController::class)->middleware('auth');
 
 
 
