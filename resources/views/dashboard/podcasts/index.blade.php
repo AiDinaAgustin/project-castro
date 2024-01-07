@@ -93,7 +93,7 @@
       </tbody>
     </table>
 
-    <div class="table-responsive small">
+    <div class="table-responsive small col-lg-10">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
