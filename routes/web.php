@@ -89,6 +89,13 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 //logout
 Route::post('/logout', [LoginController::class, 'logout']);
 
+//dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard.index', [
+        'title' => 'Dashboard'
+    ]);
+});
+
 
 
 
