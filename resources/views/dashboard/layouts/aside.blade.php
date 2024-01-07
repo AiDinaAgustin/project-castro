@@ -1,9 +1,36 @@
-<header class="sticky top-0 bg-zinc-900 z-50 flex items-center justify-between mb-4 py-2 px-4">
-    <div class="brand w-full sm:w-36 md:w-64 flex justify-center">
-     <img src="../assets/img/LOGO CASTRO (2) 2.png" alt="">
-    </div>
-    <div class="Profile w-full flex items-center justify-between">
-      <h1 class="text-2xl text-white font-bold ml-4">{{ $title }}</h1>
-      <button class="bg-yellow-500 rounded-lg text-lg text-white font-bold px-2"><a href="index.html">Back</a></button>
-    </div>
-  </header>
+<aside class="w-full sm:w-36 md:w-64 px-4">
+    <ul class="flex flex-col gap-4 items-center md:items-start text-lg text-white font-bold">
+      <a href="/dashboard">
+        <li class="flex items-center gap-3">
+          <img src="../assets/img/Home.png" alt="" width="35px">
+          <span class="hidden md:block text-2xl">
+            Dashboard
+          </span>
+        </li>
+      </a>
+      <a href="#">
+        <li class="flex items-center gap-3">
+          <img src="../assets/img/Paper.png" alt="" width="35px">
+          <span class="hidden md:block text-2xl">
+            Podcast
+          </span>
+        </li>
+      </a>
+      <a href="#">
+        <li class="flex items-center gap-3">
+          <img src="../assets/img/Profile.png" alt="" width="35px">
+          <span class="hidden md:block text-2xl">
+            User
+          </span>
+        </li>
+      </a>
+      <a href="#">
+        <li class="flex items-center gap-3">
+          <img src="../assets/img/Video.png" alt="" width="35px">
+          <span class="hidden md:block text-2xl">
+            Live
+          </span>
+        </li>
+      </a>
+    </ul>
+  </aside>
