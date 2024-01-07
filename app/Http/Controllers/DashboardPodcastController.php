@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Podcast;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class DashboardPodcastController extends Controller
 {
     /**
      * Display a listing of the resource.
