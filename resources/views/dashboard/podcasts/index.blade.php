@@ -105,13 +105,16 @@
             </tr>
           </thead>
           <tbody>
+            @foreach ($podcasts as $podcast)
             <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $podcast->title }}</td>
+                <td>{{ $podcast->category->name }}</td>
+                <td>placeholder</td>
+                <td>text</td>
             </tr>
+            @endforeach
+            
           </tbody>
         </table>
       </div>
