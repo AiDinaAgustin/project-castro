@@ -13,6 +13,7 @@ class DashboardPodcastController extends Controller
     public function index()
     {
         return view('dashboard.podcasts.index', [
+            'title' => 'My Podcasts',
             'podcasts' => Podcast::where('user_id', auth()->user()->id)->get()
         ]);
     }
