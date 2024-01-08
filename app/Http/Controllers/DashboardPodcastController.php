@@ -39,10 +39,11 @@ class DashboardPodcastController extends Controller
      */
     public function show(Podcast $podcast)
     {
-        return view('dashboard.podcasts.show', [
-            'title' => "Detail Podcast : $podcast->title",
-            'podcast' => $podcast
-        ]);
+        return 'show';
+        // return view('dashboard.podcasts.show', [
+        //     'title' => "Detail Podcast : $podcast->title",
+        //     'podcast' => $podcast
+        // ]);
     }
 
     /**

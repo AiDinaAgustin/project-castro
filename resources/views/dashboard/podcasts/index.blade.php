@@ -112,7 +112,7 @@
                 <td>{{ $podcast->category->name }}</td>
                 <td>{{ $podcast->created_at->format('d M, Y') }}</td>
                 <td>
-                    <a href="/dashboard/podcasts/{{ $podcast->id }}" class="badge bg-info">
+                    <a href="/dashboard/podcasts/{{ $podcast->slug }}" class="badge bg-info">
                         <svg class="h-4 w-4 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="2" />  <path d="M2 12l1.5 2a11 11 0 0 0 17 0l1.5 -2" />  <path d="M2 12l1.5 -2a11 11 0 0 1 17 0l1.5 2" /></svg>                                                
                     </a>
                     <a href="/dashboard/podcasts/{{ $podcast->slug }}/edit" class="badge bg-warning">
