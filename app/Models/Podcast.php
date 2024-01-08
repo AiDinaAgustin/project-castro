@@ -20,4 +20,9 @@ class Podcast extends Model
     {
         return $this->belongsTo(User::class, 'user_id'); //pengubahan ini dilakukan agar sesuai saja dengan author yang dicari, karena secara default laravel akan mencari user_id di tabel users
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
