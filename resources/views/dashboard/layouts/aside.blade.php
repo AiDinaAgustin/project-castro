@@ -2,7 +2,7 @@
     <ul class="flex flex-col gap-4 items-center md:items-start text-lg text-white font-bold">
       <a href="/dashboard">
         <li class="flex items-center gap-3">
-          <img src="../assets/img/Home.png" alt="" width="35px">
+          <img src="/assets/img/Home.png" alt="" width="35px">
           <span class="hidden md:block text-2xl">
             Dashboard
           </span>
@@ -10,7 +10,7 @@
       </a>
       <a href="/dashboard/podcasts">
         <li class="flex items-center gap-3">
-          <img src="../assets/img/Paper.png" alt="" width="35px">
+          <img src="/assets/img/Paper.png" alt="" width="35px">
           <span class="hidden md:block text-2xl">
             Podcast
           </span>
@@ -18,7 +18,7 @@
       </a>
       <a href="#">
         <li class="flex items-center gap-3">
-          <img src="../assets/img/Profile.png" alt="" width="35px">
+          <img src="/assets/img/Profile.png" alt="" width="35px">
           <span class="hidden md:block text-2xl">
             User
           </span>
@@ -26,7 +26,7 @@
       </a>
       <a href="#">
         <li class="flex items-center gap-3">
-          <img src="../assets/img/Video.png" alt="" width="35px">
+          <img src="/assets/img/Video.png" alt="" width="35px">
           <span class="hidden md:block text-2xl">
             Live
           </span>
