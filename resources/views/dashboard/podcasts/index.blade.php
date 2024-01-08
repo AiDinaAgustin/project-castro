@@ -3,6 +3,11 @@
 @section('content')
 
 <div class="mb-4 w-full ml-10">
+  @if (session()->has('success'))
+      <div class="alert alert-success" role="alert">
+          {{ session('success') }}
+      </div>
+  @endif
     <div class="table-responsive small col-lg-12">
         <a href="/dashboard/podcasts/create">
             <button type="button" class="btn btn-sm btn-primary bg-primary d-flex align-items-center gap-1 mb-2">

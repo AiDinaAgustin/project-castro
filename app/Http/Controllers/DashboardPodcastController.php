@@ -44,6 +44,10 @@ class DashboardPodcastController extends Controller
         ]);
 
         $validatedData['user_id'] = auth()->user()->id;
+
+        Podcast::create($validatedData);
+
+        return redirect('/dashboard/podcasts')->with('success', 'New podcast has been added!');
     }
 
     /**
