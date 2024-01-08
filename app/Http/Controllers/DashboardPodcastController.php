@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Podcast;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -25,7 +26,8 @@ class DashboardPodcastController extends Controller
     public function create()
     {
         return view('dashboard.podcasts.create', [
-            'title' => 'Create New Podcast'
+            'title' => 'Create New Podcast',
+            'categories' => Category::all()
         ]);
     }
 
