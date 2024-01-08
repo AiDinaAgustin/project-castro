@@ -98,10 +98,15 @@
 </head>
 <body class="bg-black">
   @include('dashboard.layouts.header')
-  <main class="w-full min-h-screen flex">
+  <main class="w-full min-h-screen flex bg-white">
     <!-- Main content -->
+    <div class="bg-black">
     @include('dashboard.layouts.aside')
-    @yield('content')
+  </div>
+  <div class="ml-6">
+      @yield('content')
+    </div>
+    
   </main>
   
 </body>
