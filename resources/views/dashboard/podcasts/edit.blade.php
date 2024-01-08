@@ -8,7 +8,7 @@
         @csrf
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" autofocus required value="{{ old('title') }}">
+          <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" autofocus required value="{{ old('title', $podcast->title) }}">
           <div class="invalid-feedback">
             @error('title')
                 {{ $message }}
@@ -17,7 +17,7 @@
         </div>
         <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
-            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug') }}">
+            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug', $podcast->slug) }}">
             @error('slug')
                 {{ $message }}
             @enderror
@@ -26,7 +26,7 @@
             <label for="category" class="form-label">Category</label>
             <select class="form-select" name="category_id">
                 @foreach ($categories as $category)
-                @if(old('category_id') == $category->id)
+                @if(old('category_id', $podcast->category_id) == $category->id)
                     <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
                 @else
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -39,7 +39,7 @@
             @error('body')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
-            <input id="body" type="hidden" name="body" class="" value="{{ old('body') }}">
+            <input id="body" type="hidden" name="body" class="" value="{{ old('body', $podcast->body) }}">
             <trix-editor input="body"></trix-editor>
         </div>
         <button type="submit" class="btn btn-primary bg-primary">Create Podcast</button>
