@@ -7,11 +7,19 @@
         @csrf
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="title" name="title" autofocus>
+          <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" autofocus required>
+          <div class="invalid-feedback">
+            @error('title')
+                {{ $message }}
+            @enderror
+          </div>
         </div>
         <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
-            <input type="text" class="form-control" id="slug" name="slug">
+            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required>
+            @error('slug')
+                {{ $message }}
+            @enderror
         </div>
         <div class="mb-3">
             <label for="category" class="form-label">Category</label>
@@ -27,6 +35,9 @@
         </div>
         <div class="mb-3">
             <label for="category" class="form-label">Body</label>
+            @error('body')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
             <input id="body" type="hidden" name="body" class="text-white">
             <trix-editor input="body"></trix-editor>
         </div>
