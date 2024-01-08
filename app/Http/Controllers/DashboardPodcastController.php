@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Podcast;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardPodcastController extends Controller
 {
@@ -24,8 +25,7 @@ class DashboardPodcastController extends Controller
     public function create()
     {
         return view('dashboard.podcasts.create', [
-            'title' => 'Create New Podcast',
-            'podcast' => new Podcast()
+            'title' => 'Create New Podcast'
         ]);
     }
 
@@ -71,4 +71,13 @@ class DashboardPodcastController extends Controller
     {
         //
     }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Podcast::class, 'slug', $request->title);
+
+        return response()->json(['slug' => $slug]);
+    }
+
+    
 }

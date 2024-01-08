@@ -2,22 +2,30 @@
 
 @section('content')
 
-<div class="mb-4 w-50 ml-10 col-lg-8 ">
-    <form class="mx-auto" action="/dashboard/podcasts" method="post">
+<div class="col-lg-6">
+    <form method="post" action="/dashboard/podcasts">
         @csrf
-        <div class="form-group flex flex-col gap-2 mb-3">
-            <label class="h-full text-lg text-white" for="title">Title</label>
-            <input class="rounded-md outline-yellow-700 p-2" type="text" id="title" name="title">
+        <div class="mb-3">
+          <label for="title" class="form-label text-white">Title</label>
+          <input type="text" class="form-control" id="title" name="title">
         </div>
-         <div class="form-group flex flex-col gap-2 mb-3">
-            <label class="h-full text-lg text-white" for="slug">Slug</label>
-            <input class="rounded-md outline-yellow-700 p-2" type="text" id="slug" name="slug">
-        </div>
-        
-        <div class="w-full flex justify-end">
-        <button class="bg-yellow-400 py-2 px-4 rounded-md text-white" type="submit">Create Podcast</button>
-        </div>
-    </form>
+        <div class="mb-3">
+            <label for="slug" class="form-label text-white">Slug</label>
+            <input type="text" class="form-control" id="slug" name="slug">
+          </div>
+        <button type="submit" class="btn btn-primary bg-primary">Create Podcast</button>
+      </form>
 </div>
+
+<script>
+    const title = document.querySelector('#title');
+    const slug = document.querySelector('#slug');
+
+    title.addEventListener('change', function() {
+        fetch('/dashboard/podcasts/checkSlug?title=' + title.value)
+            .then(response => response.json())
+            .then(data => slug.value = data.slug)
+    });
+</script>
 
 @endsection

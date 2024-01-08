@@ -97,9 +97,10 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware('auth');
 
+
+Route::get('/dashboard/podcasts/checkSlug', [DashboardPodcastController::class, 'checkSlug'])->middleware('auth');
 //dashboard podcast route resource  
 Route::resource('/dashboard/podcasts', DashboardPodcastController::class)->middleware('auth');
-
 
 
 
