@@ -23,7 +23,10 @@ class DashboardPodcastController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.podcasts.create', [
+            'title' => 'Create New Podcast',
+            'podcast' => new Podcast()
+        ]);
     }
 
     /**
