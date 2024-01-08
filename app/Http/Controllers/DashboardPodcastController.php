@@ -39,7 +39,7 @@ class DashboardPodcastController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|min:3|max:255',
             'slug' => 'required|unique:podcasts',
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'required',
             'body' => 'required'
         ]);
     }
