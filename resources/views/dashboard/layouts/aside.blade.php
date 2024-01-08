@@ -16,14 +16,14 @@
           </span>
         </li>
       </a>
-      <a href="#">
+      {{-- <a href="#">
         <li class="flex items-center gap-3">
           <img src="/assets/img/Profile.png" alt="" width="35px">
           <span class="hidden md:block text-2xl">
             User
           </span>
         </li>
-      </a>
+      </a> --}}
       <a href="#">
         <li class="flex items-center gap-3">
           <img src="/assets/img/Video.png" alt="" width="35px">
