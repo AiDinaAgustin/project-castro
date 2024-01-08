@@ -38,7 +38,7 @@
             @error('body')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
-            <input id="body" type="hidden" name="body" class="text-white">
+            <input id="body" type="hidden" name="body" class="" value="{{ old('body') }}">
             <trix-editor input="body"></trix-editor>
         </div>
         <button type="submit" class="btn btn-primary bg-primary">Create Podcast</button>
