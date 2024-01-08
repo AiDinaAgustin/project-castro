@@ -42,6 +42,8 @@ class DashboardPodcastController extends Controller
             'category_id' => 'required',
             'body' => 'required'
         ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
     }
 
     /**
