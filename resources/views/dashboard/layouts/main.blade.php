@@ -93,6 +93,10 @@
       color: white;
       border-bottom: 2px solid #F9D80F;
     }
+
+    trix-toolbar [data-trix-button-group="file-tools"] {
+        display: none;
+      }
   </style>  
   <title>Castro Studio</title>
 </head>
