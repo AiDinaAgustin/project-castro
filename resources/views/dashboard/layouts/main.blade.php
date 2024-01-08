@@ -107,7 +107,7 @@
     <div class="bg-black">
     @include('dashboard.layouts.aside')
   </div>
-  <div class="ml-6">
+  <div class="ml-6 mt-3">
       @yield('content')
     </div>
     
