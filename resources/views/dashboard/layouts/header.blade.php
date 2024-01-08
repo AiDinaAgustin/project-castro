@@ -4,6 +4,6 @@
     </div>
     <div class="Profile w-full flex items-center justify-between">
       <h1 class="text-2xl text-white font-bold ml-4">{{ $title }}</h1>
-      <button class="bg-yellow-500 rounded-lg text-lg text-white font-bold px-2"><a href="index.html">Back</a></button>
+      <button class="bg-yellow-500 rounded-lg text-lg text-white font-bold px-2"><a href="/">Back</a></button>
     </div>
   </header>
