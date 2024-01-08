@@ -66,7 +66,11 @@ class DashboardPodcastController extends Controller
      */
     public function edit(Podcast $podcast)
     {
-        //
+        return view('dashboard.podcasts.edit', [
+            'title' => "Edit Podcast : $podcast->title",
+            'podcast' => $podcast,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
