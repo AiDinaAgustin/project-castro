@@ -42,7 +42,7 @@
             <input id="body" type="hidden" name="body" class="" value="{{ old('body', $podcast->body) }}">
             <trix-editor input="body"></trix-editor>
         </div>
-        <button type="submit" class="btn btn-primary bg-primary">Create Podcast</button>
+        <button type="submit" class="btn btn-primary bg-primary">Update Podcast</button>
       </form>
 </div>
 

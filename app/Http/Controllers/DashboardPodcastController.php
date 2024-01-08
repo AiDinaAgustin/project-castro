@@ -78,7 +78,20 @@ class DashboardPodcastController extends Controller
      */
     public function update(Request $request, Podcast $podcast)
     {
-        //
+        $rules = [
+            'title' => 'required|min:3|max:255',
+            'category_id' => 'required',
+            'body' => 'required'
+        ];
+
+        //validasi slug jika slug tidak sama dengan slug yang ada di database maka akan membuat slug baru dengan menggunakan title
+        //jika slug sama dengan slug yang ada di database maka slug tidak akan berubah
+        if ($request->slug != $podcast->slug) {
+            $rules['slug'] = 'required|unique:podcasts';
+        }
+
+        //validasi data yang di inputkan user
+        $validatedData = $request->validate($rules);
     }
 
     /**
