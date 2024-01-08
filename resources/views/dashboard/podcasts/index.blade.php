@@ -45,7 +45,7 @@
                     </a>
                     </button>
                     
-                    <form action="/dashboard/podcasts" method="post" class="d-inline py-2">
+                    <form action="/dashboard/podcasts/{{ $podcast->slug }}" method="post" class="d-inline py-2">
                       @method('delete')
                       @csrf
                       <button class="badge bg-danger" onclick="return confirm('Are you sure? ')">

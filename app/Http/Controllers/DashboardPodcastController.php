@@ -82,7 +82,9 @@ class DashboardPodcastController extends Controller
      */
     public function destroy(Podcast $podcast)
     {
-        //
+        Podcast::destroy($podcast->id);
+
+        return redirect('/dashboard/podcasts')->with('success', 'Podcast has been deleted!');
     }
 
     public function checkSlug(Request $request)
