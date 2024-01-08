@@ -36,7 +36,12 @@ class DashboardPodcastController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validatedData = $request->validate([
+            'title' => 'required|min:3|max:255',
+            'slug' => 'required|unique:podcasts',
+            'category_id' => 'required|exists:categories,id',
+            'body' => 'required'
+        ]);
     }
 
     /**
