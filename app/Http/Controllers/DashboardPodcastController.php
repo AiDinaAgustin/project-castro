@@ -92,6 +92,13 @@ class DashboardPodcastController extends Controller
 
         //validasi data yang di inputkan user
         $validatedData = $request->validate($rules);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Podcast::where('id', $podcast->id)
+            ->update($validatedData);
+
+        return redirect('/dashboard/podcasts')->with('success', 'Podcast has been updated!');
     }
 
     /**
