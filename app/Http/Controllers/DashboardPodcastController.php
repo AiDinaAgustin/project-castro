@@ -44,6 +44,11 @@ class DashboardPodcastController extends Controller
             'body' => 'required'
         ]);
 
+        //jika user mengupload gambar
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('podcast-images');
+        }
+
         $validatedData['user_id'] = auth()->user()->id;
 
         Podcast::create($validatedData);
