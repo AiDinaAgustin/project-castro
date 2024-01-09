@@ -40,6 +40,7 @@ class DashboardPodcastController extends Controller
             'title' => 'required|min:3|max:255',
             'slug' => 'required|unique:podcasts',
             'category_id' => 'required',
+            'image' => 'image|file|max:1999', //max:1999 = 1,99mb
             'body' => 'required'
         ]);
 

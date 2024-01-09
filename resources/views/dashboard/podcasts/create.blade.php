@@ -35,7 +35,10 @@
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Podcast Image</label>
-            <input class="form-control" type="file" id="image" name="image">
+            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
+            @error('image')
+                {{ $message }}
+            @enderror
         </div>
         <div class="mb-3">
             <label for="category" class="form-label">Body</label>
