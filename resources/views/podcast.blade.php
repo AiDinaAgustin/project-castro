@@ -177,7 +177,7 @@
           </div>
           <!-- details -->
           <div class="text-gray-400 font-bold mb-10">
-            <p class="text-lg mb-4">16 Desember 2023</p>
+            <p class="text-lg mb-4">{{ $podcast->created_at->format('D M Y') }}</p>
             <div class="text-xl text-white mb-6">
               {!! $podcast->body !!}
             </div>
