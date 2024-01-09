@@ -37,6 +37,13 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        Category::create(
+            [
+                'name' => 'Horror',
+                'slug' => 'horror'
+            ]
+        );
+
         Podcast::factory(20)->create();
 
         // User::create(
