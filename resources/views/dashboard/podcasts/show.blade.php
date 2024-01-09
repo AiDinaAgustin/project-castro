@@ -114,7 +114,11 @@
         <main class="relative w-full h-full overflow-x-hidden">
           <!-- Main content -->
           <div class="relative">
+            @if ($podcast->image)
+            <div class="cover" style="background-image: url('{{ asset('storage/' . $podcast->image) }}');"> </div>
+            @else
             <div class="cover" style="background-image: url('https://source.unsplash.com/1000x270/?{{ $podcast->category->name }}');"> </div>
+            @endif
             <div class="absolute w-max bottom-10 start-1/2 -translate-x-1/2 flex flex-col justify-center items-center gap-5 text-2xl text-white font-bold">
               @if ($podcast->image)
               <img class="w-64 mb-4" src="{{ asset('storage/' . $podcast->image) }}" alt="{{ $podcast->category->name }}" style="width: 250px; height: 140px; object-fit: cover;">
@@ -136,7 +140,7 @@
           </div>
           
           <!-- details -->
-          <div class="text-gray-400 font-bold mb-10">
+          <div class="text-gray-400 font-bold mb-10 mt-6">
             <p class="text-lg mb-4">{{ $podcast->created_at->format('D M Y') }}</p>
             <div class="text-xl text-white mb-6">
               {!! $podcast->body !!}
@@ -152,7 +156,11 @@
           <!-- Player Music  -->
           <div class="player w-full h-16 flex items-center justify-between px-4 absolute bg-zinc-700 bottom-5">
             <div class="flex gap-x-2">
+              @if ($podcast->image)
+              <img class="w-[65px]" src="{{ asset('storage/' . $podcast->image) }}" alt="" style="width: 65px; height: 50px; object-fit: cover;">
+              @else
               <img class="w-[65px]" src="https://source.unsplash.com/500x270/?{{ $podcast->category->name }}" alt="">
+              @endif
               <div class="flex flex-col items-start text-white">
                 <!-- title -->
                 <a href="/authors/{{ $podcast->author->username }}"><p>{{ $podcast->author->name }}</p></a>
