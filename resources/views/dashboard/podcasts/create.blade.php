@@ -34,6 +34,10 @@
               </select>
         </div>
         <div class="mb-3">
+            <label for="image" class="form-label">Podcast Image</label>
+            <input class="form-control" type="file" id="image" name="image">
+        </div>
+        <div class="mb-3">
             <label for="category" class="form-label">Body</label>
             @error('body')
                 <p class="text-danger">{{ $message }}</p>
