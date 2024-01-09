@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-lg-12">
-    <form method="post" action="/dashboard/podcasts">
+    <form method="post" action="/dashboard/podcasts" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
