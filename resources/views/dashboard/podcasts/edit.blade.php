@@ -36,7 +36,11 @@
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Podcast Image</label>
+            @if ($podcast->image)
+            <img src="{{ asset('storage/' . $podcast->image) }}" class="img-preview img-fluid mb-3 col-sm-5">
+            @else
             <img class="img-preview img-fluid mb-3 col-sm-5">
+            @endif
             <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
             @error('image')
                 {{ $message }}
