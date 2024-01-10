@@ -71,12 +71,12 @@
               <path d="M7 6.931C7 5.865 7.853 5 8.905 5h6.19C16.147 5 17 5.865 17 6.931V19l-5-4-5 4V6.931Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
-          <button type="button" class="hidden sm:block lg:hidden xl:block" aria-label="Previous">
+          {{-- <button type="button" class="hidden sm:block lg:hidden xl:block" aria-label="Previous">
             <svg width="24" height="24" fill="none">
               <path d="m10 12 8-6v12l-8-6Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               <path d="M6 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-          </button>
+          </button> --}}
           <button type="button" aria-label="Rewind 10 seconds">
             <svg width="24" height="24" fill="none">
               <path d="M6.492 16.95c2.861 2.733 7.5 2.733 10.362 0 2.861-2.734 2.861-7.166 0-9.9-2.862-2.733-7.501-2.733-10.362 0A7.096 7.096 0 0 0 5.5 8.226" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -116,15 +116,25 @@
               <path d="M19 5v3.111c0 .491-.398.889-.889.889H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
-          <button type="button" class="hidden sm:block lg:hidden xl:block" aria-label="Next">
+          {{-- <button type="button" class="hidden sm:block lg:hidden xl:block" aria-label="Next">
             <svg width="24" height="24" fill="none">
               <path d="M14 12 6 6v12l8-6Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               <path d="M18 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-          </button>
-          <button type="button" class="rounded-lg text-xs leading-6 font-semibold px-2 ring-2 ring-inset ring-slate-500 text-slate-500 dark:text-slate-100 dark:ring-0 dark:bg-slate-500">
-            1x
-          </button>
+          </button> --}}
+          <div class="relative inline-block">
+            <div class="w-10 relative">
+              <button type="button" class="w-full rounded-lg text-xs leading-6 font-semibold px-2 ring-2 ring-inset ring-slate-500 text-slate-500 dark:text-slate-100 dark:ring-0 dark:bg-slate-500">
+                <span id="speedDisplay">1x</span>
+                <div id="speedDropdown" class="absolute hidden mt-2 bg-white ring-1 ring-slate-300 dark:bg-slate-700 dark:ring-slate-500 text-slate-500 dark:text-slate-100">
+                  <div class="px-2 py-1" onclick="selectSpeed('0.5')">0.5x</div>
+                  <div class="px-2 py-1" onclick="selectSpeed('1')">1x</div>
+                  <div class="px-2 py-1" onclick="selectSpeed('1.5')">1.5x</div>
+                  <div class="px-2 py-1" onclick="selectSpeed('2')">2x</div>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
     </div>
 
@@ -158,9 +168,64 @@
     const durationDisplay = document.querySelector('.duration');
     const rewindButton = document.querySelector('button[aria-label="Rewind 10 seconds"]');
     const skipButton = document.querySelector('button[aria-label="Skip 10 seconds"]');
+    const speedDisplay = document.getElementById('speedDisplay');
+    const speedDropdown = document.getElementById('speedDropdown');
 
-    // Set the audio source
-    audio.src = '{{ asset('storage/' . $podcast->audio)  }}';
+     // Set the audio source
+     audio.src = '{{ asset('storage/' . $podcast->audio)  }}';
+
+    // Sembunyikan dropdown saat tombol diklik
+    document.querySelector('.w-10 button').addEventListener('click', () => {
+      speedDropdown.classList.toggle('hidden');
+    });
+
+    // Tanggapi perubahan speed saat opsi dipilih
+    speedDropdown.addEventListener('click', function(event) {
+      const selectedSpeed = event.target.textContent;
+      speedDisplay.textContent = selectedSpeed;
+      console.log(`Selected speed: ${selectedSpeed}`);
+      speedDropdown.classList.add('hidden');
+
+      // Setel kecepatan pemutaran audio
+      audio.playbackRate = parseFloat(selectedSpeed);
+    });
+
+    // Sembunyikan dropdown jika di klik di luar area dropdown
+    document.addEventListener('click', function(event) {
+      const isClickInside = document.querySelector('.w-40').contains(event.target);
+      if (!isClickInside) {
+        speedDropdown.classList.add('hidden');
+      }
+    });
+
+    // Tanggapi perubahan speed saat opsi dipilih
+speedDropdown.addEventListener('click', function(event) {
+  const selectedSpeed = event.target.textContent;
+  speedDisplay.textContent = selectedSpeed;
+  console.log(`Selected speed: ${selectedSpeed}`);
+  speedDropdown.classList.add('hidden');
+
+  // Setel kecepatan pemutaran audio
+  audio.playbackRate = parseFloat(selectedSpeed);
+});
+   
+
+    // // Inisialisasi Choices.js untuk dropdown speed
+    // const speedChoices = new Choices(speedSelect, {
+    //   choices: [
+    //     { value: '0.5', label: '0.5x' },
+    //     { value: '1', label: '1x' },
+    //     { value: '1.5', label: '1.5x' },
+    //     { value: '2', label: '2x' }
+    //   ],
+    //   shouldSort: false
+    // });
+
+    // // Event listener untuk perubahan speed pada dropdown
+    // speedSelect.addEventListener('change', function() {
+    //   const selectedSpeed = speedSelect.value;
+    //   audio.playbackRate = parseFloat(selectedSpeed);
+    // });
 
     rewindButton.addEventListener('click', function() {
       // Mengurangkan waktu sebanyak 10 detik dari waktu saat ini
