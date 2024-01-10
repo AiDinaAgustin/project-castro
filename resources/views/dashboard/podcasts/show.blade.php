@@ -33,7 +33,7 @@
         </div> --}}
       </div>
         <div class="flex items-center space-x-4">
-          <img src="{{ asset('storage/' . $podcast->image) }}" alt="" width="88" height="88" class="flex-none rounded-lg bg-slate-100" loading="lazy" />
+          <img src="{{ asset('storage/' . $podcast->image) }}" alt="" width="88" height="70" class="flex-none rounded-lg bg-slate-100" loading="lazy" />
           <div class="min-w-0 flex-auto space-y-1 font-semibold">
             <p class="text-cyan-500 dark:text-cyan-400 text-sm leading-6">
               <abbr title="Track"></abbr> {{ $podcast->category->name  }}
@@ -156,9 +156,15 @@
     const progressBar = document.querySelector('.progress-bar');
     const currentTimeDisplay = document.querySelector('.current-time');
     const durationDisplay = document.querySelector('.duration');
+    const rewindButton = document.querySelector('button[aria-label="Rewind 10 seconds"]');
 
     // Set the audio source
     audio.src = '{{ asset('storage/' . $podcast->audio)  }}';
+
+    rewindButton.addEventListener('click', function() {
+      // Mengurangkan waktu sebanyak 10 detik dari waktu saat ini
+      audio.currentTime -= 10;
+    });
 
     // Play/Pause button click event
     playPauseButton.addEventListener('click', function() {
