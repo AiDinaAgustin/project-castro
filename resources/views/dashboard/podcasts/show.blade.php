@@ -157,6 +157,7 @@
     const currentTimeDisplay = document.querySelector('.current-time');
     const durationDisplay = document.querySelector('.duration');
     const rewindButton = document.querySelector('button[aria-label="Rewind 10 seconds"]');
+    const skipButton = document.querySelector('button[aria-label="Skip 10 seconds"]');
 
     // Set the audio source
     audio.src = '{{ asset('storage/' . $podcast->audio)  }}';
@@ -164,6 +165,11 @@
     rewindButton.addEventListener('click', function() {
       // Mengurangkan waktu sebanyak 10 detik dari waktu saat ini
       audio.currentTime -= 10;
+    });
+
+    skipButton.addEventListener('click', function() {
+      // Menambahkan waktu sebanyak 10 detik dari waktu saat ini
+      audio.currentTime += 10;
     });
 
     // Play/Pause button click event
