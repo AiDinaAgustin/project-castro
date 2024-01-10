@@ -53,12 +53,12 @@
             {{-- akan membuat untuk menampilkan nama file image lama --}}
             <input type="hidden" name="oldAudio" value="{{ $podcast->audio }}">
             @if ($podcast->audio)
-                <audio id="audioPlayer" controls>
+                <audio id="audioPlayer" controls class="mb-2">
                     <source src="{{ asset('storage/' . $podcast->audio) }}" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             @else
-                <audio id="audioPlayer" controls style="display: none;">
+                <audio id="audioPlayer" controls style="display: none;" class="mb-2">
                     Your browser does not support the audio element.
                 </audio>
             @endif

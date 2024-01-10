@@ -43,7 +43,9 @@
         </div>
         <div class="mb-3">
             <label for="audio" class="form-label">Podcast Audio</label>
-            
+            <audio id="audioPlayer" controls style="display: none;" class="mb-2">
+                Your browser does not support the audio element.
+            </audio>
             <input class="form-control @error('audio') is-invalid @enderror" type="file" id="audio" name="audio" onchange="previewAudio()">
             @error('audio')
                 {{ $message }}
@@ -89,5 +91,25 @@
         }
     }
 </script>
+
+<script>
+    function previewAudio() {
+        // Mendapatkan elemen input file dan audio player
+        var input = document.getElementById('audio');
+        var audioPlayer = document.getElementById('audioPlayer');
+
+        // Menyembunyikan audio player jika tidak ada file yang dipilih
+        if (!input.files || input.files.length === 0) {
+            audioPlayer.style.display = 'none';
+            return;
+        }
+
+        // Menampilkan audio player dan mengatur sumber audio
+        audioPlayer.style.display = 'block';
+        var audioURL = URL.createObjectURL(input.files[0]);
+        audioPlayer.src = audioURL;
+    }
+</script>
+
 
 @endsection
