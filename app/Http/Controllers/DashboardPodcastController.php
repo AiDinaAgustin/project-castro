@@ -140,6 +140,10 @@ class DashboardPodcastController extends Controller
         if($podcast->image){
             Storage::delete($podcast->image);
         }
+
+        if($podcast->audio){
+            Storage::delete($podcast->audio);
+        }
         Podcast::destroy($podcast->id);
 
         return redirect('/dashboard/podcasts')->with('success', 'Podcast has been deleted!');
