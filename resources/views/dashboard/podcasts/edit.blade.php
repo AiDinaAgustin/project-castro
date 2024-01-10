@@ -36,6 +36,8 @@
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Podcast Image</label>
+            {{-- akan membuat untuk menampilkan nama file image lama --}}
+            <input type="hidden" name="oldImage" value="{{ $podcast->image }}">
             @if ($podcast->image)
             <img src="{{ asset('storage/' . $podcast->image) }}" class="img-preview img-fluid mb-3 col-sm-5">
             @else

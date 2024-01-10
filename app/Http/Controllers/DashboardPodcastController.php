@@ -6,6 +6,7 @@ use App\Models\Podcast;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardPodcastController extends Controller
 {
@@ -101,6 +102,10 @@ class DashboardPodcastController extends Controller
         $validatedData = $request->validate($rules);
 
         if($request->file('image')){
+            //jika user mengupload gambar maka gambar yang lama akan dihapus
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
             $validatedData['image'] = $request->file('image')->store('podcast-images');
         }
 
