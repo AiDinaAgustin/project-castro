@@ -87,6 +87,7 @@ class DashboardPodcastController extends Controller
         $rules = [
             'title' => 'required|min:3|max:255',
             'category_id' => 'required',
+            'image' => 'image|file|max:1999',
             'body' => 'required'
         ];
 
@@ -98,6 +99,10 @@ class DashboardPodcastController extends Controller
 
         //validasi data yang di inputkan user
         $validatedData = $request->validate($rules);
+
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('podcast-images');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
 

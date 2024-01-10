@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-lg-12">
+<div class="col-lg-12 mb-6">
     <form method="post" action="/dashboard/podcasts/{{ $podcast->slug }}" enctype="multipart/form-data">
         @method('put')
         @csrf
