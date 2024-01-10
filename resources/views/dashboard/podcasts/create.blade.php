@@ -35,9 +35,17 @@
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Podcast Image</label>
-            <img class="img-preview img-fluid mb-3 col-sm-5">
+            <img class="img-preview img-fluid mb-3 col-sm-3">
             <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
             @error('image')
+                {{ $message }}
+            @enderror
+        </div>
+        <div class="mb-3">
+            <label for="audio" class="form-label">Podcast Audio</label>
+            {{-- <img class="img-preview img-fluid mb-3 col-sm-3"> --}}
+            <input class="form-control @error('audio') is-invalid @enderror" type="file" id="audio" name="audio">
+            @error('audio')
                 {{ $message }}
             @enderror
         </div>

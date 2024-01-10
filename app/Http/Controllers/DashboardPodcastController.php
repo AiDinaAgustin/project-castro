@@ -42,12 +42,18 @@ class DashboardPodcastController extends Controller
             'slug' => 'required|unique:podcasts',
             'category_id' => 'required',
             'image' => 'image|file|max:1999', //max:1999 = 1,99mb
+            'audio' => 'file|mimes:mp3,wav,ogg,flac,weba',
             'body' => 'required'
         ]);
 
         //jika user mengupload gambar
         if($request->file('image')){
             $validatedData['image'] = $request->file('image')->store('podcast-images');
+        }
+
+        //jika user mengupload audio
+        if($request->file('audio')){
+            $validatedData['audio'] = $request->file('audio')->store('podcast-audios');
         }
 
         $validatedData['user_id'] = auth()->user()->id;
@@ -122,6 +128,9 @@ class DashboardPodcastController extends Controller
      */
     public function destroy(Podcast $podcast)
     {
+        if($podcast->image){
+            Storage::delete($podcast->image);
+        }
         Podcast::destroy($podcast->id);
 
         return redirect('/dashboard/podcasts')->with('success', 'Podcast has been deleted!');

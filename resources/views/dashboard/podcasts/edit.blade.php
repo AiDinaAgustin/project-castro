@@ -39,9 +39,9 @@
             {{-- akan membuat untuk menampilkan nama file image lama --}}
             <input type="hidden" name="oldImage" value="{{ $podcast->image }}">
             @if ($podcast->image)
-            <img src="{{ asset('storage/' . $podcast->image) }}" class="img-preview img-fluid mb-3 col-sm-5">
+            <img src="{{ asset('storage/' . $podcast->image) }}" class="img-preview img-fluid mb-3 col-sm-3">
             @else
-            <img class="img-preview img-fluid mb-3 col-sm-5">
+            <img class="img-preview img-fluid mb-3 col-sm-3">
             @endif
             <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
             @error('image')
