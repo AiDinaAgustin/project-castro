@@ -49,6 +49,25 @@
             @enderror
         </div>
         <div class="mb-3">
+            <label for="audio" class="form-label">Podcast Audio</label>
+            {{-- akan membuat untuk menampilkan nama file image lama --}}
+            <input type="hidden" name="oldAudio" value="{{ $podcast->audio }}">
+            @if ($podcast->audio)
+                <audio id="audioPlayer" controls>
+                    <source src="{{ asset('storage/' . $podcast->audio) }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            @else
+                <audio id="audioPlayer" controls style="display: none;">
+                    Your browser does not support the audio element.
+                </audio>
+            @endif
+            <input class="form-control @error('audio') is-invalid @enderror" type="file" id="audio" name="audio" onchange="previewAudio()">
+            @error('audio')
+                {{ $message }}
+            @enderror
+        </div>
+        <div class="mb-3">
             <label for="category" class="form-label">Body</label>
             @error('body')
                 <p class="text-danger">{{ $message }}</p>
@@ -86,6 +105,24 @@
         oFReader.onload = function(oFREvent) {
             imgPreview.src = oFREvent.target.result;
         }
+    }
+</script>
+<script>
+    function previewAudio() {
+        // Mendapatkan elemen input file dan audio player
+        var input = document.getElementById('audio');
+        var audioPlayer = document.getElementById('audioPlayer');
+
+        // Menyembunyikan audio player jika tidak ada file yang dipilih
+        if (!input.files || input.files.length === 0) {
+            audioPlayer.style.display = 'none';
+            return;
+        }
+
+        // Menampilkan audio player dan mengatur sumber audio
+        audioPlayer.style.display = 'block';
+        var audioURL = URL.createObjectURL(input.files[0]);
+        audioPlayer.src = audioURL;
     }
 </script>
 

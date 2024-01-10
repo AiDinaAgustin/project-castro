@@ -95,6 +95,7 @@ class DashboardPodcastController extends Controller
             'title' => 'required|min:3|max:255',
             'category_id' => 'required',
             'image' => 'image|file|max:1999',
+            'audio' => 'file|mimes:mp3,wav,ogg,flac,weba',
             'body' => 'required'
         ];
 
@@ -113,6 +114,14 @@ class DashboardPodcastController extends Controller
                 Storage::delete($request->oldImage);
             }
             $validatedData['image'] = $request->file('image')->store('podcast-images');
+        }
+
+        if($request->file('audio')){
+            //jika user mengupload audio maka audio yang lama akan dihapus
+            if($request->oldAudio){
+                Storage::delete($request->oldAudio);
+            }
+            $validatedData['audio'] = $request->file('audio')->store('podcast-audios');
         }
 
         $validatedData['user_id'] = auth()->user()->id;
