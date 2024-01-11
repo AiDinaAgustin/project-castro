@@ -72,9 +72,17 @@ Route::get('/thriller', function () {
 Route::get('/cari', function (Category $category) {
     return view('search', [
         'title' => "Search",
-        'categories' => Category::all()
+    'categories' => Category::all()
     ]);
 });
+
+//profile
+Route::get('/profile', function () {
+    return view('profile', [
+        "title" => "Profile",
+        "user" => auth()->user()
+    ]);
+})->middleware('auth');
 
 Route::get("/search",[PodcastController::class,'search']);
 
