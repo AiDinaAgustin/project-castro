@@ -144,13 +144,13 @@
             <div class="flex items-center space-x-4">
               <img src="{{ asset('storage/' . $podcast->image) }}" alt="" width="88" height="70" class="flex-none rounded-lg bg-slate-100" loading="lazy" />
               <div class="min-w-0 flex-auto space-y-1 font-semibold">
-                <p class="text-cyan-500 dark:text-cyan-400 text-sm leading-6">
+                <p class="text-yellow-500 text-sm leading-6">
                   <abbr title="Track"></abbr> {{ $podcast->category->name  }}
                 </p>
-                <h2 class="text-slate-500 dark:text-slate-400 text-sm leading-6 truncate">
+                <h2 class="text-slate-500 text-sm leading-6 truncate">
                   {{ $podcast->author->name  }}
                 </h2>
-                <p class="text-slate-900 dark:text-slate-50 text-lg">
+                <p class="text-white dark:text-slate-50 text-lg">
                   {{ $podcast->title }}
                 </p>
               </div>
@@ -273,14 +273,14 @@
           </div>
           <!-- details -->
           <div class="text-gray-400 font-bold mb-10 ">
-            <p class="text-lg mb-4">{{ $podcast->created_at->format('D M Y') }}</p>
-            <div class="text-xl text-white mb-6">
+            <p class="text-lg">{{ $podcast->created_at->format('D M Y') }}</p>
+            <div class="text-md mb-4 text-white">
               {!! $podcast->body !!}
             </div>
             
             <div class="genre">
               <ul class="flex justify-start items-center gap-3">
-                <li class="bg-zinc-700 py-2 px-4 rounded-full">Horror</li>
+                <li class="bg-zinc-700 py-2 px-4 rounded-full">{{ $podcast->category->name }}</li>
                 <li class="bg-zinc-700 py-2 px-4 rounded-full">PG-13</li>
               </ul>
             </div>
