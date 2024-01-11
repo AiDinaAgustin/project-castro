@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('gender',['Male','Female']); // Add this line
             //tanggal lahir
             $table->date('birth')->nullable(); // Add this line
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

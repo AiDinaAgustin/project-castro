@@ -29,8 +29,15 @@ class RegisterController extends Controller
            'email' => 'required|email:dns|unique:users',
            'password' => 'required|min:5|max:255',
            'gender' => 'required|in:MALE,FEMALE',
-           'birth' => 'required|date|before_or_equal:' . Carbon::now()->subYears(13)->format('m-d-Y')
+           'birth' => 'required|date|before_or_equal:' . Carbon::now()->subYears(13)->format('m-d-Y'),
+            'image' => 'image|file|max:1999'
+           
        ]);
+
+       //jika user mengupload gambar
+       if($request->file('image')){
+        $validatedData['image'] = $request->file('image')->store('user-images');
+        }
 
        User::create($validatedData);
        

@@ -16,6 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // User::create(
+        //     [
+        //         'name' => 'Dina',
+        //         'password' => bcrypt('password'),
+        //         'email' => 'aidina@gmail.com'
+        //     ]
+        // );
         User::factory(3)->create();
 
         // \App\Models\User::factory()->create([
@@ -39,8 +46,8 @@ class DatabaseSeeder extends Seeder
 
         Category::create(
             [
-                'name' => 'Horror',
-                'slug' => 'horror'
+                'name' => 'Thriller',
+                'slug' => 'thriller'
             ]
         );
 

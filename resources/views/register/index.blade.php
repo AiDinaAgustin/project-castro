@@ -18,7 +18,7 @@
         <p>Daftar Akun</p>
     </header>
     <main class="w-10/12 mx-auto">
-        <form class="mx-auto" action="/register" method="post">
+        <form class="mx-auto" action="/register" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label text-lg text-white">Name</label>
@@ -63,7 +63,7 @@
                     <option value="FEMALE">Female</option>
                 </select>
             </div>
-            <div class="mb-6">
+            <div class="mb-3">
                 <label for="birth" class="form-label text-lg text-white">Birth</label>
                 <input type="date" class="form-control rounded-md @error('birth') is-invalid @enderror" id="birth" name="birth" required value="{{ old('birth') }}">
                 @error('birth')
@@ -72,11 +72,36 @@
                     </div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="image" class="form-label text-lg text-white">Podcast Image</label>
+                <img class="img-preview img-fluid mb-2 col-sm-3">
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+                @error('image')
+                    {{ $message }}
+                @enderror
+            </div>
             <div class="w-full d-flex justify-content-end">
                 <button class="btn btn-warning bg-yellow-500 text-white" type="submit">Daftar</button>
             </div>
         </form>
     </main>
+
+    <script>
+        function previewImage() {
+        const image = document.querySelector('#image');
+        const imgPreview = document.querySelector('.img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
