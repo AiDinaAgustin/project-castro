@@ -135,26 +135,26 @@
               </button>
             </div>
           </div>
-        </div>
-    </div>
-
-      <!-- Add these elements where you want the audio player to appear -->
-{{-- <div class="audio-player">
-  <button class="play-pause-btn" aria-label="Play/Pause">
-    <svg width="30" height="32" fill="currentColor">
-      <rect x="6" y="4" width="4" height="24" rx="2" />
-      <rect x="20" y="4" width="4" height="24" rx="2" />
-    </svg>
-  </button>
-  <div class="progress-bar-container">
-    <div class="progress-bar"></div>
+      </div>
+</div>
+<!-- details -->
+<div class="mt-6">
+  <hr />
+<div class="text-gray-400 font-bold mb-4">
+  <p class="text-lg mt-2">{{ $podcast->created_at->format('D M Y') }}</p>
+  <div class="text-md mb-4">
+    {!! $podcast->body !!}
   </div>
-  <div class="time-displays">
-    <span class="current-time">00:00</span> / <span class="duration">00:00</span>
+  
+  <div class="genre">
+    <ul class="flex justify-start items-center gap-3">
+      <li class="bg-zinc-700 py-2 px-4 rounded-full">{{ $podcast->category->name }}</li>
+      <li class="bg-zinc-700 py-2 px-4 rounded-full">PG-13</li>
+    </ul>
   </div>
-</div> --}}
-
+</div>
     </div>
+</div>
 </div>
   
 <!-- Add this script at the end of your HTML body or in a separate JS file -->
