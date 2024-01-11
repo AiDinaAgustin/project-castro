@@ -56,7 +56,8 @@ Route::get('/podcasts', [PodcastController::class, 'tampil']);
 
 Route::get('/supranatural', function () {
     return view('supranatural', [
-        "title" => "Supranatural"
+        "title" => "Supernatural",
+        "podcasts" => Podcast::where('category_id', 2)->get()
     ]);
 });
 
