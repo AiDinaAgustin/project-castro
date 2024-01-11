@@ -45,7 +45,8 @@ Route::get('/authors/{author:username}', function (User $author) {
 
 Route::get('/misteri', function () {
     return view('misteri', [
-        "title" => "Misteri"
+        "title" => "Misteri",
+        "podcasts" => Podcast::where('category_id', 1)->get()
     ]);
 });
 
