@@ -63,7 +63,8 @@ Route::get('/supranatural', function () {
 
 Route::get('/thriller', function () {
     return view('thriller', [
-        "title" => "Thriller"
+        "title" => "Thriller",
+        "podcasts" => Podcast::where('category_id', 4)->get()
     ]);
 });
 
