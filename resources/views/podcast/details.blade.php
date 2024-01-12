@@ -20,4 +20,5 @@
         {{-- <li class="bg-zinc-700 py-2 px-4 rounded-full">PG-13</li> --}}
       </ul>
     </div>
+    <div class="mt-6 text-xl text-white">Komentar</div>
   </div>

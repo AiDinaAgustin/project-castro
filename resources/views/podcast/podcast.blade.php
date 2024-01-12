@@ -90,6 +90,7 @@
             </button>
           </div>
         </div>
+
     </div>
     </div>
     <!-- icon -->
@@ -119,4 +120,10 @@
         <rect x="29.1666" y="6.25" width="12.5" height="37.5" rx="2" fill="white"/>
       </svg>
     </div> --}}
+    <!-- komentar -->
+    
+    @include('podcast.komentar')
+    
+
+  </div>
   </main>
