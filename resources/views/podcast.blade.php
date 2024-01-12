@@ -71,6 +71,7 @@
         <header class="sticky top-0 bg-zinc-900 z-50 flex items-center justify-between mb-4 py-2">
           @include('partials.head')
         </header>
+        
         @include('podcast.podcast')
       </div>
     </div>

@@ -1,7 +1,13 @@
 <main class="relative w-full h-full overflow-x-hidden">
+ 
     <!-- Main content -->
     <div class="bg-zinc-900 border-slate-100 dark:bg-slate-800 dark:border-slate-500 border-b rounded-t-xl p-2 pb-2 sm:p-10 sm:pb-8 lg:p-6 xl:p-10 xl:pb-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8  items-center">
-    <div class="relative">
+      @if (session()->has('success'))
+      <div class="alert alert-success col-lg-12 text-white" role="alert">
+          {{ session('success') }}
+      </div>
+  @endif
+      <div class="relative">
       @if ($podcast->image)
       <div class="cover" style="background-image: url('{{ asset('storage/' . $podcast->image) }}');"> </div>
       @else

@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PodcastController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPodcastController;
@@ -24,7 +25,7 @@ use App\Http\Controllers\DashboardPodcastController;
 Route::get('/', [PodcastController::class, 'index']);
 
 //halaman single podcast
-Route::get('/podcasts/{podcast:slug}', [PodcastController::class, 'show']);
+Route::get('/podcasts/{podcast:slug}', [PodcastController::class, 'show'])->name('podcast');
 
 //route category
 Route::get('/categories/{category:slug}', function (Category $category) {
@@ -49,6 +50,9 @@ Route::get('/misteri', function () {
         "podcasts" => Podcast::where('category_id', 1)->get()
     ]);
 });
+
+//untuk comment dari CommentController
+Route::post('/podcasts/{podcast:slug}/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
 
 //untuk cari podcast
 
