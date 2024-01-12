@@ -16,7 +16,7 @@
           <p class="text-xs md:text-sm pt-px">Some HTML is okay.</p> --}}
         </div>
         <div class="-mr-1">
-          <input type='submit' class="bg-white text-yellow-500 text-bold font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-yellow-500 hover:text-white" value='Post Comment'>
+          <input type='submit' class="bg-yellow-500 text-white text-bold font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-yellow-500 hover:text-white hover:font-bold" value='Post Comment'>
         </div>
       </div>
     </div>

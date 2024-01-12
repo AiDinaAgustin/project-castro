@@ -1,4 +1,4 @@
-<div class="text-gray-400 font-bold mb-10 ">
+<div class="text-gray-400 font-bold mb-2 ">
     <div>
       <div class="flex justify-between">
         <div class="flex">

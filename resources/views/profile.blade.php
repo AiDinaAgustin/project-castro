@@ -15,9 +15,16 @@
 
 <main class="w-full flex flex-col items-center gap-3 min-h-screen overflow-x-hidden">
     <!-- Main content -->
-    <div style="width: 250px; height: 250px; overflow: hidden; border-radius: 50%;">
-        <img src="{{ asset('storage/' . $user->image) }}" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
+    @if ($user->image)
+        <div style="width: 250px; height: 250px; overflow: hidden; border-radius: 50%;">
+          <img src="{{ asset('storage/' . $user->image) }}" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    @else
+        <div style="width: 250px; height: 250px; overflow: hidden; border-radius: 50%;">
+          <img src="/assets/img/Ellipse 46.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>        
+    @endif
+    
     
     <h3 class="text-2xl text-white font-bold">{{ $user->name }}</h3>
     <p class="text-xl text-white font-bold">&commat;{{ $user->username }}</p>
