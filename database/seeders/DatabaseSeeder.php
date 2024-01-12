@@ -44,12 +44,12 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        Category::create(
-            [
-                'name' => 'Thriller',
-                'slug' => 'thriller'
-            ]
-        );
+        // Category::create(
+        //     [
+        //         'name' => 'Thriller',
+        //         'slug' => 'thriller'
+        //     ]
+        // );
 
         Podcast::factory(20)->create();
 
