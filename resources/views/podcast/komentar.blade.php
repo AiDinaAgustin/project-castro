@@ -29,7 +29,11 @@
     <!-- This is an example component -->
     <div class="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-zinc-900 shadow-lg">
       <div class="relative flex gap-4">
+        @if ($comment->user->image)
+        <img src="{{ asset('storage/' . $comment->user->image) }}" class="relative rounded-lg -top-8 -mb-4 bg-white border h-16 w-16" alt="" loading="lazy">
+        @else
         <img src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png" class="relative rounded-lg -top-8 -mb-4 bg-white border h-16 w-16" alt="" loading="lazy">
+        @endif
         <div class="flex flex-col w-full">
           <div class="flex flex-row justify-between">
             <p class="relative whitespace-nowrap truncate overflow-hidden text-sm text-gray-400">&commat;{{ $comment->user->username }}</p>
