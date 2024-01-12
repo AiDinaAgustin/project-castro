@@ -1,15 +1,20 @@
-<div class="w-full h-16 flex items-center justify-between px-16 mt-4 rounded-lg bg-zinc-700 bottom-5">
+<div class="w-full h-24 flex items-center justify-between px-16 mt-4 rounded-lg bg-zinc-700 bottom-5">
     <div class="flex gap-x-2">
       @if ($podcast->image)
-      <img class="w-[65px]" src="{{ asset('storage/' . $podcast->image) }}" alt="" style="width: 65px; height: 50px; object-fit: cover;">
+      <img class="w-[75px] p-2" src="{{ asset('storage/' . $podcast->image) }}" alt="" style="width: 65px; height: 50px; object-fit: cover;">
       @else
-      <img class="w-[65px]" src="https://source.unsplash.com/500x270/?{{ $podcast->category->name }}" alt="">
+      <img class="w-[75px] p-2 rounded" src="https://source.unsplash.com/500x270/?{{ $podcast->category->name }}" alt="">
       @endif
-      <div class="flex flex-col items-start text-white ml-10">
-        <!-- title -->
-        <a href="/authors/{{ $podcast->author->username }}"><p>{{ $podcast->author->name }}</p></a>
-        <!-- durations -->
-        <div class="truncate text-slate-400 text-xs mt-2"><a href="/categories/{{ $podcast->category->slug }}">{{ $podcast->category->name }}</a></div>
+      <div class="min-w-0 flex-auto space-y-1 font-semibold ml-24">
+        <p class="text-yellow-500 text-sm leading-6">
+          <abbr title="Track"></abbr> {{ $podcast->category->name  }}
+        </p>
+        <p class="text-white text-sm">
+            {{ $podcast->author->name  }}
+          </p>
+        <h2 class="text-slate-500 text-sm leading-6 truncate">
+          377.5k followers
+        </h2>
       </div>
     </div>
     <svg class="play_btn" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
