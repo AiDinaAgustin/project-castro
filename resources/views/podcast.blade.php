@@ -66,69 +66,10 @@
       <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"/></svg>
     </div>
     <div class="flex items-start gap-4">
-        <nav class="hidden fixed w-full sm:w-36 sm:block sm:static md:w-64 p-4">
-            <img class="mb-4" src="/assets/img/logo.png" alt="logo">
-            <ul class="flex flex-col gap-4 items-center md:items-start text-lg text-white font-bold">
-              <a href="/">
-                <li class="flex items-center gap-3">
-                  <img src="/assets/img/Home.png" alt="" width="35px">
-                  <span class="hidden md:block text-2xl">
-                    Dashboard
-                  </span>
-                </li>
-              </a>
-              <a href="/cari">
-                <li class="flex items-center gap-3">
-                  <img src="/assets/img/Search.png" alt="" width="35px">
-                  <span class="hidden md:block text-2xl">
-                    Search
-                  </span>
-                </li>
-              </a>
-              <a href="/live">
-                <li class="flex items-center gap-3">
-                  <img src="/assets/img/Video.png" alt="" width="35px">
-                  <span class="hidden md:block text-2xl">
-                    Live
-                  </span>
-                </li>
-              </a>
-              <a href="/collection">
-                <li class="flex items-center gap-3">
-                  <img src="/assets/img/Paper.png" alt="" width="35px">
-                  <span class="hidden md:block text-2xl">
-                    Koleksi
-                  </span>
-                </li>
-              </a>
-              <a href="/profile">
-                <li class="flex items-center gap-3">
-                  <img src="/assets/img/Profile.png" alt="" width="35px">
-                  <span class="hidden md:block text-2xl">
-                    Profile
-                  </span>
-                </li>
-              </a>
-            </ul>
-          </nav>
+        @include('partials.navbar')
       <div class="flex-1 bg-zinc-900 rounded-lg mx-auto py-2 px-4">
         <header class="sticky top-0 bg-zinc-900 z-50 flex items-center justify-between mb-4 py-2">
-          <div class="button-nav flex">
-            <div class="btn-undo mr-4">
-              <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512" fill="#F9D80F"><path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM271 135c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-87 87 87 87c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L167 273c-9.4-9.4-9.4-24.6 0-33.9L271 135z"/></svg>
-            </div>
-            <div class="btn-redo mr-4">
-              <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512" fill="#F9D80F"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM241 377c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l87-87-87-87c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L345 239c9.4 9.4 9.4 24.6 0 33.9L241 377z"/></svg>
-            </div>
-          </div>
-          <div class="Profile flex gap-3">
-            <ul class="flex text-gray-400 font-bold gap-3 mr-6">
-              <li class="active">Buat Kamu</li>
-              <li>Misteri</li>
-              <li>Supranatural</li>
-              <li>Thriller</li>
-            </ul>
-          </div>
+          @include('partials.head')
         </header>
         <main class="relative w-full h-full overflow-x-hidden">
           <!-- Main content -->
