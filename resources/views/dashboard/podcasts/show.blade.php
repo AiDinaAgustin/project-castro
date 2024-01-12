@@ -149,7 +149,7 @@
   <div class="genre">
     <ul class="flex justify-start items-center gap-3">
       <li class="bg-zinc-700 py-2 px-4 rounded-full">{{ $podcast->category->name }}</li>
-      <li class="bg-zinc-700 py-2 px-4 rounded-full">PG-13</li>
+      {{-- <li class="bg-zinc-700 py-2 px-4 rounded-full">PG-13</li> --}}
     </ul>
   </div>
 </div>
