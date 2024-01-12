@@ -142,7 +142,11 @@
             
 
             <div class="flex items-center space-x-4">
-              <img src="{{ asset('storage/' . $podcast->image) }}" alt="" width="88" height="70" class="flex-none rounded-lg bg-slate-100" loading="lazy" />
+            @if ($podcast->image)
+            <img src="{{ asset('storage/' . $podcast->image) }}" alt="" width="88" height="70" class="flex-none rounded-lg bg-slate-100" loading="lazy" />
+            @else
+            <img src="https://source.unsplash.com/100x100/?{{ $podcast->category->name }}" class="flex-none rounded-lg bg-slate-100" loading="lazy" />
+            @endif
               <div class="min-w-0 flex-auto space-y-1 font-semibold">
                 <p class="text-yellow-500 text-sm leading-6">
                   <abbr title="Track"></abbr> {{ $podcast->category->name  }}
@@ -175,12 +179,6 @@
                   <path d="M7 6.931C7 5.865 7.853 5 8.905 5h6.19C16.147 5 17 5.865 17 6.931V19l-5-4-5 4V6.931Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
-              {{-- <button type="button" class="hidden sm:block lg:hidden xl:block" aria-label="Previous">
-                <svg width="24" height="24" fill="none">
-                  <path d="m10 12 8-6v12l-8-6Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M6 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button> --}}
               <button type="button" aria-label="Rewind 10 seconds">
                 <svg width="24" height="24" fill="none">
                   <path d="M6.492 16.95c2.861 2.733 7.5 2.733 10.362 0 2.861-2.734 2.861-7.166 0-9.9-2.862-2.733-7.501-2.733-10.362 0A7.096 7.096 0 0 0 5.5 8.226" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -188,12 +186,6 @@
                 </svg>
               </button>
             </div>
-            {{-- <button type="button" class="play-pause-btn bg-white text-slate-900 dark:bg-slate-100 dark:text-slate-700 flex-none -my-2 mx-auto w-20 h-20 rounded-full ring-1 ring-slate-900/5 shadow-md flex items-center justify-center" aria-label="Play/Pause">
-              <svg width="30" height="32" fill="currentColor">
-                <rect x="6" y="4" width="4" height="24" rx="2" />
-                <rect x="20" y="4" width="4" height="24" rx="2" />
-              </svg>
-            </button> --}}
             <button type="button" class="play-pause-btn bg-white text-slate-900 dark:bg-slate-100 dark:text-slate-700 flex-none -my-2 mx-auto w-20 h-20 rounded-full ring-1 ring-slate-900/5 shadow-md flex items-center justify-center" aria-label="Play/Pause">
               <!-- Ganti konten SVG untuk tombol play -->
               <svg class="play-icon" width="30" height="32" fill="currentColor">
@@ -220,12 +212,6 @@
                   <path d="M19 5v3.111c0 .491-.398.889-.889.889H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
-              {{-- <button type="button" class="hidden sm:block lg:hidden xl:block" aria-label="Next">
-                <svg width="24" height="24" fill="none">
-                  <path d="M14 12 6 6v12l8-6Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M18 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button> --}}
               <div class="relative inline-block">
                 <div class="w-10 relative">
                   <button type="button" class="w-full rounded-lg text-xs leading-6 font-semibold px-2 ring-2 ring-inset ring-slate-500 text-slate-500 dark:text-slate-100 dark:ring-0 dark:bg-slate-500">
@@ -281,12 +267,12 @@
             <div class="genre">
               <ul class="flex justify-start items-center gap-3">
                 <li class="bg-zinc-700 py-2 px-4 rounded-full">{{ $podcast->category->name }}</li>
-                <li class="bg-zinc-700 py-2 px-4 rounded-full">PG-13</li>
+                {{-- <li class="bg-zinc-700 py-2 px-4 rounded-full">PG-13</li> --}}
               </ul>
             </div>
           </div>
           <!-- Player Music  -->
-          <div class="player w-full h-16 flex items-center justify-between px-4 absolute bg-zinc-700 bottom-5">
+          {{-- <div class="player w-full h-16 flex items-center justify-between px-4 absolute bg-zinc-700 bottom-5">
             <div class="flex gap-x-2">
               @if ($podcast->image)
               <img class="w-[65px]" src="{{ asset('storage/' . $podcast->image) }}" alt="" style="width: 65px; height: 50px; object-fit: cover;">
@@ -307,7 +293,7 @@
               <rect x="8.33337" y="6.25" width="12.5" height="37.5" rx="2" fill="white"/>
               <rect x="29.1666" y="6.25" width="12.5" height="37.5" rx="2" fill="white"/>
             </svg>
-          </div>
+          </div> --}}
         </main>
       </div>
     </div>
