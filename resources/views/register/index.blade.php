@@ -9,12 +9,13 @@
   <title>Login | Castro-Studio</title>
 </head>
 <body class="relative bg-black w-full h-screen">
-  <div class="absolute mt-32 top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+  <div class="absolute mt-40 top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
     <img src="assets/img/logo.png" alt="" width="331px">
 
     <div class="w-auto bg-zinc-700 flex flex-col items-center py-4 px-8 md:px-24 rounded-lg">
       <form class="flex flex-col" action="/register" method="post" enctype="multipart/form-data">
         @csrf
+        <h3 class="text-4xl text-yellow-400 text-center font-bold mb-6">Register</h3> 
         <div class="mb-3">
             <label for="name" class="form-label text-lg text-white">Name</label>
             <input type="text" class="form-control rounded-md @error('name') is-invalid @enderror" id="name" name="name" required value="{{ old('name') }}">
