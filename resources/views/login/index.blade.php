@@ -13,6 +13,20 @@
     <img src="assets/img/logo.png" alt="" width="331px">
 
     <div class="w-auto bg-zinc-700 flex flex-col items-center py-8 px-8 md:px-32 rounded-lg">
+      @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if (session()->has('status'))
+            <div class="alert alert-success">
+                {{ session()->get('status') }}
+            </div>
+        @endif
       @if(session('success'))
         <div class="alert alert-danger">
             {{ session('success') }}
@@ -41,7 +55,7 @@
         </div>
         <div class="flex justify-between text-yellow-400 text-xs mb-6">
           <p>Belum Punya akun? <a class="text-blue-500" href="/register">Daftar</a></p>
-          <p><a class="text-blue-500" href="forgotPassword.html">Lupa Password</a></p>
+          <p><a class="text-blue-500" href="{{ route('password.request') }}">Lupa Password</a></p>
         </div>
         <button class="bg-yellow-400 py-2 px-4 rounded-md text-white mx-auto" type="submit">Masuk</button>
       </form>

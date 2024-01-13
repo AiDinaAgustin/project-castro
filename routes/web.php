@@ -3,6 +3,7 @@
 use App\Models\User;
 use App\Models\Podcast;
 use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -10,6 +11,10 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PodcastController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPodcastController;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,7 +96,7 @@ Route::get('/profile', function () {
 Route::get("/search",[PodcastController::class,'search']);
 
 //login
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 
 //register menampilkan halaman register
 Route::get('/register', [RegisterController::class, 'index']);
@@ -116,6 +121,54 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/podcasts/checkSlug', [DashboardPodcastController::class, 'checkSlug'])->middleware('auth');
 //dashboard podcast route resource  
 Route::resource('/dashboard/podcasts', DashboardPodcastController::class)->middleware('auth');
+
+//forgot password
+Route::get('/forgot-password', function () {
+    return view('forgotpassword.index');
+})->middleware('guest')->name('password.request');
+
+Route::post('/forgot-password', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
+ 
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+ 
+    return $status === Password::RESET_LINK_SENT
+                ? back()->with(['status' => __($status)])
+                : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+
+//reset password
+Route::get('/reset-password/{token}', function ($token) {
+    return view('forgotpassword.resetpassword', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+//reset password post
+Route::post('/reset-password', function (Request $request) {
+    $request->validate([
+        'token' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|min:8|confirmed',
+    ]);
+ 
+    $status = Password::reset(
+        $request->only('email', 'password', 'password_confirmation', 'token'),
+        function (User $user, string $password) {
+            $user->forceFill([
+                'password' => Hash::make($password)
+            ])->setRememberToken(Str::random(60));
+ 
+            $user->save();
+ 
+            event(new PasswordReset($user));
+        }
+    );
+ 
+    return $status === Password::PASSWORD_RESET
+                ? redirect()->route('login')->with('status', __($status))
+                : back()->withErrors(['email' => [__($status)]]);
+})->middleware('guest')->name('password.update');
 
 
 

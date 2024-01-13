@@ -29,7 +29,7 @@ class RegisterController extends Controller
            'email' => 'required|email:dns|unique:users',
            'password' => 'required|min:5|max:255',
            'gender' => 'required|in:MALE,FEMALE',
-           'birth' => 'required|date|before_or_equal:' . Carbon::now()->subYears(13)->format('m-d-Y'),
+           'birth' => 'required|date|before_or_equal:',
             'image' => 'image|file|max:1999'
            
        ]);
