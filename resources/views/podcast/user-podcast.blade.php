@@ -1,4 +1,4 @@
-<a href="">
+
   <div class="w-full h-24 flex items-center justify-between px-16 mt-4 rounded-lg bg-zinc-700 bottom-5">
     <div class="flex gap-x-2">
       @if ($podcast->image)
@@ -10,9 +10,11 @@
         <p class="text-yellow-500 text-sm leading-6">
           <abbr title="Track"></abbr> {{ $podcast->category->name  }}
         </p>
+        <a href="/authors/{{ $podcast->author->username }}">
         <p class="text-white text-sm">
             {{ $podcast->author->name  }}
           </p>
+        </a>
         <h2 class="text-slate-500 text-sm leading-6 truncate">
           377.5k followers
         </h2>
@@ -26,4 +28,3 @@
       <rect x="29.1666" y="6.25" width="12.5" height="37.5" rx="2" fill="white"/>
     </svg>
   </div>
-</a>

@@ -14,6 +14,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  {{-- link favicon --}}
+    <link rel="shortcut icon" href="/assets/img/LOGO CASTRO (2) 2.png" type="image/x-icon">
+    {{-- link fontawesome --}}
   <style>
     main::-webkit-scrollbar {
       width: 12px;
@@ -118,51 +121,51 @@
       </svg>
     </div>
     <div class="flex items-start gap-4">
-      <nav class="hidden fixed w-full sm:w-36 sm:block sm:static md:w-64 p-4">
-        <img class="mb-4" src="assets/img/logo.png" alt="logo">
-        <ul class="flex flex-col gap-4 items-center md:items-start text-lg text-white font-bold">
-          <a href="index.html">
-            <li class="flex items-center gap-3">
-              <img src="assets/img/Home.png" alt="" width="35px">
-              <span class="hidden md:block text-2xl">
-                Dashboard
-              </span>
-            </li>
-          </a>
-          <a href="search.html">
-            <li class="flex items-center gap-3">
-              <img src="assets/img/Search.png" alt="" width="35px">
-              <span class="hidden md:block text-2xl">
-                Search
-              </span>
-            </li>
-          </a>
-          <a href="live.html">
-            <li class="flex items-center gap-3">
-              <img src="assets/img/Video.png" alt="" width="35px">
-              <span class="hidden md:block text-2xl">
-                Live
-              </span>
-            </li>
-          </a>
-          <a href="collection.html">
-            <li class="flex items-center gap-3">
-              <img src="assets/img/Paper.png" alt="" width="35px">
-              <span class="hidden md:block text-2xl">
-                Koleksi
-              </span>
-            </li>
-          </a>
-          <a href="profile.html">
-            <li class="flex items-center gap-3">
-              <img src="assets/img/Profile.png" alt="" width="35px">
-              <span class="hidden md:block text-2xl">
-                Profile
-              </span>
-            </li>
-          </a>
-        </ul>
-      </nav>
+        <nav class="hidden fixed w-full sm:w-36 sm:block sm:static md:w-64 p-4">
+            <img class="mb-4" src="/assets/img/logo.png" alt="logo">
+            <ul class="flex flex-col gap-4 items-center md:items-start text-lg text-white font-bold">
+              <a href="/">
+                <li class="flex items-center gap-3">
+                  <img src="/assets/img/Home.png" alt="" width="35px">
+                  <span class="hidden md:block text-2xl">
+                    Dashboard
+                  </span>
+                </li>
+              </a>
+              <a href="/cari">
+                <li class="flex items-center gap-3">
+                  <img src="/assets/img/Search.png" alt="" width="35px">
+                  <span class="hidden md:block text-2xl">
+                    Search
+                  </span>
+                </li>
+              </a>
+              <a href="/live">
+                <li class="flex items-center gap-3">
+                  <img src="/assets/img/Video.png" alt="" width="35px">
+                  <span class="hidden md:block text-2xl">
+                    Live
+                  </span>
+                </li>
+              </a>
+              <a href="/collection">
+                <li class="flex items-center gap-3">
+                  <img src="/assets/img/Paper.png" alt="" width="35px">
+                  <span class="hidden md:block text-2xl">
+                    Koleksi
+                  </span>
+                </li>
+              </a>
+              <a href="/profile">
+                <li class="flex items-center gap-3">
+                  <img src="/assets/img/Profile.png" alt="" width="35px">
+                  <span class="hidden md:block text-2xl">
+                    Profile
+                  </span>
+                </li>
+              </a>
+            </ul>
+          </nav>
       <div class="overflow-hidden flex-1 bg-zinc-900 rounded-lg mx-auto p-4">
         <header class="sticky top-0 bg-zinc-900 z-50 flex items-center justify-between mb-4 py-2">
           <div class="button-nav flex">
@@ -184,11 +187,11 @@
           style="width: 103%; margin: -1.5%; ">
           <!-- Main content -->
           <div class="row"
-            style="width: 105%; padding: -10%; padding-bottom: 10px; background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0.579)), url('assets/img/Ellipse 46.png'); background-size: cover; background-position: center; width: 100%;">
+            style="width: 105%; padding: -10%; padding-bottom: 10px; background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0.579)), url('/assets/img/Ellipse 46.png'); background-size: cover; background-position: center; width: 100%;">
             <div class="col-lg-7 col-12 d-flex align-items-center">
               <div>
-                <h3 class="text-2xl text-white font-bold" style="font-size: 36px;">CASTRO STUDIO 6</h3>
-                <h3 class="text-2xl font-bold" style="font-size: 16px; color: grey;">@castrostudio6</h3>
+                <h3 class="text-2xl text-white font-bold" style="font-size: 36px;">{{ $author->name }}</h3>
+                <h3 class="text-2xl font-bold" style="font-size: 16px; color: grey;">&commat;{{ $author->username }}</h3>
                 <div class="row">
                   <div class="col-lg-3 col-12">
                     <p class="text-xl text-white text-center">22316</p>
@@ -203,62 +206,54 @@
                     <p class="text-xl text-start" style="color: gray; font-size: 16px;">Menonton</p>
                   </div>
                 </div>
-
               </div>
 
             </div>
             <div class="col-lg-5 col-12 d-flex justify-content-lg-end align-items-center">
-              <img class="mt-5" src="assets/img/Ellipse 46.png" alt="" width="250px">
+              <img class="mt-5" src="/assets/img/Ellipse 46.png" alt="" width="250px">
             </div>
-
-            <div class="col-lg-7">
-              <p class="text-xl text-white text-start" style="margin-top: -7%;">Lulusan D3 Keperawatan, Dota 2
-                Player|Wearing @oursinsclothes|CP: +62 812-8881-654</p>
+            <div class="col-lg-12 flex gap-3">
+                <p class="active text-gray-400 font-bold gap-3 mr-6">Karya</p>
             </div>
-            <div class="col-lg-5"></div>
-
-            <div class="w-46 bg-yellow-400 flex items-start gap-2 py-2 px-2 md:px-16 rounded-lg mb-4"
-              style="align-items: start; margin-left: 10px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M9.3764 20.0279L18.1628 8.66544C18.6403 8.0527 18.8101 7.3443 18.6509 6.62299C18.513 5.96726 18.1097 5.34377 17.5049 4.87078L16.0299 3.69906C14.7459 2.67784 13.1541 2.78534 12.2415 3.95706L11.2546 5.23735C11.1273 5.39752 11.1591 5.63401 11.3183 5.76301C11.3183 5.76301 13.812 7.76246 13.8651 7.80546C14.0349 7.96671 14.1622 8.1817 14.1941 8.43969C14.2471 8.94493 13.8969 9.41792 13.377 9.48242C13.1329 9.51467 12.8994 9.43942 12.7297 9.29967L10.1086 7.21422C9.98126 7.11855 9.79025 7.13898 9.68413 7.26797L3.45514 15.3303C3.0519 15.8355 2.91395 16.4912 3.0519 17.1255L3.84777 20.5761C3.89021 20.7589 4.04939 20.8879 4.24039 20.8879L7.74222 20.8449C8.37891 20.8341 8.97316 20.5439 9.3764 20.0279ZM14.2797 18.9533H19.9898C20.5469 18.9533 21 19.4123 21 19.9766C21 20.5421 20.5469 21 19.9898 21H14.2797C13.7226 21 13.2695 20.5421 13.2695 19.9766C13.2695 19.4123 13.7226 18.9533 14.2797 18.9533Z"
-                  fill="black" />
-              </svg>
-              <a class="text-2xl text-black font-bold" style="font-size: 16px;" href="createMyPodcast.html">Ubah
-                Profile</a>
-            </div>
-
-            <div class="col-lg-12">
-              <div class="Profile flex gap-3">
-                <ul class="flex text-gray-400 font-bold gap-3 mr-6">
-                  <li class="active"><a href="profile.html">Karyaku</a></li>
-                  <li><a href="aktivitas.html">Aktifitas</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-
-
-          <main class="w-full flex flex-col items-start py-4 px-5 gap-3 min-h-screen overflow-x-hidden px-0">
-            <div class="row flex flex-row-reverse justify-content-start">
-              <div class="col-lg-3 container">
-                <div class="card ml-0" style="width: 250px; height: 250px; overflow: hidden; border-radius: 15px;">
-                  <img src="assets/img/banner-1699624477532.jpg" alt="Card Image"
-                    style="width: 100%; height: 100%; object-fit: cover; object-position: center center;">
+            
+        </div>
+        <div class="col-lg-12">
+            <div class="mb-4">
+                <!-- Slider main container -->
+                <div class="swiper">
+                  <!-- Additional required wrapper -->
+                  <div class="swiper-wrapper">
+                    <!-- Slides -->
+                        @foreach ($podcasts as $podcast)
+                        <div class="swiper-slide">
+                            <a href="/podcasts/{{ $podcast->slug }}">
+                            <div class="cover-music bg-zinc-800 w-40 h-56 rounded-md p-2">
+                                <div class="relative w-36">
+                                @if ($podcast->image)
+                                <img class="w-full h-36 object-cover object-center" src="{{ asset('storage/' . $podcast->image) }}" alt="your music">
+                                @else
+                                <img class="w-full" src="https://source.unsplash.com/400x400/?{{ $podcast->category->name }}" alt="your music">
+                                @endif
+                                <div class="play-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                                </div>
+                                </div>
+                                <div>
+                                <h4 class="truncate text-white text-base mb-2">{{ $podcast->title}}</h4>
+                                <div class="truncate text-slate-400 text-xs">{!! $podcast->body !!}</div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        @endforeach
+                    
+                    </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                 </div>
-                <p class="text-xl text-white font-bold text-start">Musuh Masyarakat</p>
-              </div>
-              <div class="col-lg-3 container">
-                <div class="card ml-0" style="width: 250px; height: 250px; overflow: hidden; border-radius: 15px;">
-                  <img src="assets/img/banner-1699624477532.jpg" alt="Card Image"
-                    style="width: 100%; height: 100%; object-fit: cover; object-position: center center;">
-                </div>
-                <p class="text-xl text-white font-bold text-start">Noice Official</p>
-              </div>
             </div>
-          </main>
-          
+        </div>
         </main>
       </div>
     </div>

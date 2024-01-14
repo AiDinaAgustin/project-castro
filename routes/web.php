@@ -44,9 +44,10 @@ Route::get('/categories/{category:slug}', function (Category $category) {
 
 //halaman user orang
 Route::get('/authors/{author:username}', function (User $author) {
-    return view('author', [
-        'title' => "Podcast by Author : $author->name",
+    return view('authorpodcast', [
+        'title' => "Podcast by : $author->name",
         'podcasts' => $author->podcasts,
+        'author' => $author
     ]);
 });
 
@@ -177,12 +178,12 @@ Route::post('/podcasts/{podcast:slug}/like', [PodcastLikeController::class, 'lik
 Route::post('/podcasts/{podcast:slug}/unlike', [PodcastLikeController::class, 'unlike'])->name('podcast.unlike')->middleware('auth');
 
 //route menampilkan author dari podcast
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('author', [
-        'title' => "Podcast by Author : $author->name",
-        'podcasts' => $author->podcasts,
-    ]);
-})->name('author');
+// Route::get('/podcasts/{author:name}', function (User $author) {
+//     return view('authorpodcast', [
+//         'title' => "Podcast by Author : $author->name",
+//         'podcasts' => $author->podcasts,
+//     ]);
+// })->name('author');
 
 
 
