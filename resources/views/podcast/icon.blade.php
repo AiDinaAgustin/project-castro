@@ -1,5 +1,6 @@
 <div class="flex justify-between items-center flex-wrap text-2xl text-white font-bold my-10 mx-16">
-  @if (Auth::user()->likesPodcast($podcast))
+  @auth
+    @if (Auth::user()->likesPodcast($podcast))
       <div>
           <form action="{{ route('podcast.unlike', $podcast->slug) }}" method="POST">
             @csrf
@@ -11,8 +12,8 @@
             </button> 
           </form>
         </div> 
-  @else
-  <div>
+    @else
+        <div>
           <form action="{{ route('podcast.like', $podcast->slug) }}" method="POST">
             @csrf
             <button type="submit" class="flex flex-col items-center">
@@ -23,9 +24,22 @@
             </button> 
           </form>
         </div> 
-  @endif
-        
-        
+    @endif
+  @endauth
+  @guest
+  <div>
+    <form action="{{ route('podcast.like', $podcast->slug) }}" method="POST">
+      @csrf
+      <button type="submit" class="flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+        </svg>
+        <p class="mt-3">Like</p>
+      </button> 
+    </form>
+  </div>
+  @endguest
+
     <div class="flex flex-col items-center">
       <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9794 4.16646H34.0419C41.1044 4.16646 45.8335 9.12479 45.8335 16.4998V33.5227C45.8335 40.8748 41.1044 45.8331 34.0419 45.8331H15.9794C8.91687 45.8331 4.16687 40.8748 4.16687 33.5227V16.4998C4.16687 9.12479 8.91687 4.16646 15.9794 4.16646ZM23.8127 31.229L33.7085 21.3331C34.4169 20.6248 34.4169 19.479 33.7085 18.7498C33.0002 18.0415 31.8335 18.0415 31.1252 18.7498L22.521 27.354L18.8752 23.7081C18.1669 22.9998 17.0002 22.9998 16.2919 23.7081C15.5835 24.4165 15.5835 25.5623 16.2919 26.2915L21.2502 31.229C21.6044 31.5831 22.0627 31.7498 22.521 31.7498C23.0002 31.7498 23.4585 31.5831 23.8127 31.229Z" fill="white"/>
