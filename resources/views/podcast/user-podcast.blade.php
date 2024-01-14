@@ -1,4 +1,5 @@
-<div class="w-full h-24 flex items-center justify-between px-16 mt-4 rounded-lg bg-zinc-700 bottom-5">
+<a href="">
+  <div class="w-full h-24 flex items-center justify-between px-16 mt-4 rounded-lg bg-zinc-700 bottom-5">
     <div class="flex gap-x-2">
       @if ($podcast->image)
       <img class="w-[75px] p-2" src="{{ asset('storage/' . $podcast->image) }}" alt="" style="width: 65px; height: 50px; object-fit: cover;">
@@ -25,3 +26,4 @@
       <rect x="29.1666" y="6.25" width="12.5" height="37.5" rx="2" fill="white"/>
     </svg>
   </div>
+</a>

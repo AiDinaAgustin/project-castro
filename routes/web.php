@@ -176,5 +176,13 @@ Route::post('/podcasts/{podcast:slug}/like', [PodcastLikeController::class, 'lik
 //unlike
 Route::post('/podcasts/{podcast:slug}/unlike', [PodcastLikeController::class, 'unlike'])->name('podcast.unlike')->middleware('auth');
 
+//route menampilkan author dari podcast
+Route::get('/authors/{author:username}', function (User $author) {
+    return view('author', [
+        'title' => "Podcast by Author : $author->name",
+        'podcasts' => $author->podcasts,
+    ]);
+})->name('author');
+
 
 

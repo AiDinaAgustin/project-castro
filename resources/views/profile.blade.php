@@ -13,7 +13,9 @@
     </div>
   </header>
 
+  
 <main class="w-full flex flex-col items-center gap-3 min-h-screen overflow-x-hidden">
+  
     <!-- Main content -->
     @if ($user->image)
         <div style="width: 250px; height: 250px; overflow: hidden; border-radius: 50%;">
