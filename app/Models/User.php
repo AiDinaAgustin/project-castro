@@ -45,4 +45,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Podcast::class);
     }
+
+    public function likes(){
+        return $this->belongsToMany(Podcast::class, 'podcast_like')->withTimestamps();
+    }
+
+    public function likesPodcast(Podcast $podcast){
+        return $this->likes()->where('podcast_id', $podcast->id)->exists();
+    }
 }

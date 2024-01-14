@@ -3,18 +3,19 @@
 use App\Models\User;
 use App\Models\Podcast;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Login;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\LoginController;
+use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PodcastController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PodcastLikeController;
 use App\Http\Controllers\DashboardPodcastController;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -169,6 +170,11 @@ Route::post('/reset-password', function (Request $request) {
                 ? redirect()->route('login')->with('status', __($status))
                 : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
+
+//like pake controller LikeController
+Route::post('/podcasts/{podcast:slug}/like', [PodcastLikeController::class, 'like'])->name('podcast.like')->middleware('auth');
+//unlike
+Route::post('/podcasts/{podcast:slug}/unlike', [PodcastLikeController::class, 'unlike'])->name('podcast.unlike')->middleware('auth');
 
 
 
