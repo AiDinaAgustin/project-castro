@@ -192,28 +192,36 @@
               <div>
                 <h3 class="text-2xl text-white font-bold" style="font-size: 36px;">{{ $author->name }}</h3>
                 <h3 class="text-2xl font-bold" style="font-size: 16px; color: grey;">&commat;{{ $author->username }}</h3>
-                <div class="row">
-                  <div class="col-lg-3 col-12">
-                    <p class="text-xl text-white text-center">22316</p>
-                    <p class="text-xl text-center" style="color: gray; font-size: 16px;">Followers</p>
-                  </div>
-                  <div class="col-lg-3 col-12">
-                    <p class="text-xl text-white text-center">0</p>
-                    <p class="text-xl text-center" style="color: gray; font-size: 16px;">Following</p>
-                  </div>
-                  <div class="col-lg-3 col-12">
-                    <p class="text-xl text-white text-center" style="text-align: center;">0</p>
-                    <p class="text-xl text-start" style="color: gray; font-size: 16px;">Menonton</p>
-                  </div>
-                </div>
+                    <div class="row">
+                      <div class="col-lg-3 col-12">
+                        <p class="text-xl text-white text-center">22316</p>
+                        <p class="text-xl text-center" style="color: gray; font-size: 16px;">Followers</p>
+                      </div>
+                      <div class="col-lg-3 col-12">
+                        <p class="text-xl text-white text-center">0</p>
+                        <p class="text-xl text-center" style="color: gray; font-size: 16px;">Following</p>
+                      </div>
+                      <div class="col-lg-3 col-12">
+                        <p class="text-xl text-white text-center" style="text-align: center;">0</p>
+                        <p class="text-xl text-start" style="color: gray; font-size: 16px;">Menonton</p>
+                      </div>
+                    </div>
+              </div>
+              <div class="pb-12 d-flex justify-content-lg-end align-items-center">
+                <button class="flex btn btn-warning text-white font-bold ml-3 mb-3 px-4" id="followBtn">
+                   
+                  FOLLOW</button>
               </div>
 
             </div>
             <div class="col-lg-5 col-12 d-flex justify-content-lg-end align-items-center">
               <img class="mt-5" src="/assets/img/Ellipse 46.png" alt="" width="250px">
+              
             </div>
+           
+          
             <div class="col-lg-12 flex gap-3">
-                <p class="active text-gray-400 font-bold gap-3 mr-6">Karya</p>
+                <p class="active text-gray-400 font-bold gap-3 mr-6 mb-2">Karya</p>
             </div>
             
         </div>
