@@ -53,4 +53,12 @@ class User extends Authenticatable
     public function likesPodcast(Podcast $podcast){
         return $this->likes()->where('podcast_id', $podcast->id)->exists();
     }
+
+    public function followings(){
+
+    }
+
+    public function followers(){
+
+    }
 }
