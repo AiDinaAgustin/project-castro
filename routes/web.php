@@ -50,7 +50,7 @@ Route::get('/authors/{author:username}', function (User $author) {
         'podcasts' => $author->podcasts,
         'author' => $author
     ]);
-});
+})->name('author');
 
 Route::get('/misteri', function () {
     return view('misteri', [

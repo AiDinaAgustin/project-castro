@@ -188,8 +188,14 @@
           <!-- Main content -->
           <div class="row"
             style="width: 105%; padding: -10%; padding-bottom: 10px; background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0.579)), url('/assets/img/Ellipse 46.png'); background-size: cover; background-position: center; width: 100%;">
+            @if (session()->has('success'))
+                  <div class="alert alert-success col-lg-12 text-white" role="alert">
+                      {{ session('success') }}
+                  </div>
+              @endif
             <div class="col-lg-7 col-12 d-flex align-items-center">
               <div>
+                
                 <h3 class="text-2xl text-white font-bold" style="font-size: 36px;">{{ $author->name }}</h3>
                 <h3 class="text-2xl font-bold" style="font-size: 16px; color: grey;">&commat;{{ $author->username }}</h3>
                     <div class="row">
@@ -207,12 +213,14 @@
                       </div>
                     </div>
               </div>
+              @if (Auth::id() !== $author->id)
               <div class="pb-12 d-flex justify-content-lg-end align-items-center">
                 <form action="{{ route('author.follow', $author->username) }}" method="post">
                   @csrf
                 <button class="flex btn btn-warning text-white font-bold ml-3 mb-3 px-4" id="followBtn">FOLLOW</button>
               </form>
               </div>
+              @endif
 
             </div>
             <div class="col-lg-5 col-12 d-flex justify-content-lg-end align-items-center">
