@@ -16,6 +16,7 @@ use App\Http\Controllers\PodcastController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PodcastLikeController;
 use App\Http\Controllers\DashboardPodcastController;
+use App\Http\Controllers\FollowerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -177,13 +178,7 @@ Route::post('/podcasts/{podcast:slug}/like', [PodcastLikeController::class, 'lik
 //unlike
 Route::post('/podcasts/{podcast:slug}/unlike', [PodcastLikeController::class, 'unlike'])->name('podcast.unlike')->middleware('auth');
 
-//route menampilkan author dari podcast
-// Route::get('/podcasts/{author:name}', function (User $author) {
-//     return view('authorpodcast', [
-//         'title' => "Podcast by Author : $author->name",
-//         'podcasts' => $author->podcasts,
-//     ]);
-// })->name('author');
-
-
+//follow dan unfollow
+Route::post('/authors/{author:username}/follow', [FollowerController::class, 'follow'])->name('author.follow')->middleware('auth');
+Route::post('/authors/{author:username}/unfollow', [FollowerController::class, 'unfollow'])->name('author.unfollow')->middleware('auth');
 
