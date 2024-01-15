@@ -54,11 +54,13 @@ class User extends Authenticatable
         return $this->likes()->where('podcast_id', $podcast->id)->exists();
     }
 
+    //followers_id = our_id
+    //user_id = follower users id
     public function followings(){
-
+        return $this->belongsToMany(User::class, 'follower_user', 'user_id', 'follower_id')->withTimestamps();
     }
 
     public function followers(){
-
+        return $this->belongsToMany(User::class, 'follower_user', 'follower_id', 'user_id')->withTimestamps();
     }
 }
