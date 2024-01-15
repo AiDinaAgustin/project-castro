@@ -200,11 +200,11 @@
                 <h3 class="text-2xl font-bold" style="font-size: 16px; color: grey;">&commat;{{ $author->username }}</h3>
                     <div class="row mt-2">
                       <div class="col-lg-3 col-12 justify-content-center">
-                        <p class="text-xl ml-7 text-white text-center">{{ $author->followers()->count() }}</p>
+                        <p class="text-xl ml-2 text-white text-center">{{ $author->followers()->count() }}</p>
                         <p class="text-xl text-center" style="color: gray; font-size: 16px;">Followers</p>
                       </div>
                       <div class="col-lg-3 col-12 ml-2">
-                        <p class="text-xl text-white text-center ml-7">{{ $author->followings()->count() }}</p>
+                        <p class="text-xl text-white text-center ml-2">{{ $author->followings()->count() }}</p>
                         <p class="text-xl text-center" style="color: gray; font-size: 16px;">Following</p>
                       </div>
                     </div>
