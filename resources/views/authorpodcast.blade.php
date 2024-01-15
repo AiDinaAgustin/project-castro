@@ -198,27 +198,30 @@
                 
                 <h3 class="text-2xl text-white font-bold" style="font-size: 36px;">{{ $author->name }}</h3>
                 <h3 class="text-2xl font-bold" style="font-size: 16px; color: grey;">&commat;{{ $author->username }}</h3>
-                    <div class="row">
-                      <div class="col-lg-3 col-12">
-                        <p class="text-xl text-white text-center">22316</p>
+                    <div class="row mt-2">
+                      <div class="col-lg-3 col-12 justify-content-center">
+                        <p class="text-xl ml-7 text-white text-center">{{ $author->followers()->count() }}</p>
                         <p class="text-xl text-center" style="color: gray; font-size: 16px;">Followers</p>
                       </div>
-                      <div class="col-lg-3 col-12">
-                        <p class="text-xl text-white text-center">0</p>
+                      <div class="col-lg-3 col-12 ml-2">
+                        <p class="text-xl text-white text-center ml-7">{{ $author->followings()->count() }}</p>
                         <p class="text-xl text-center" style="color: gray; font-size: 16px;">Following</p>
-                      </div>
-                      <div class="col-lg-3 col-12">
-                        <p class="text-xl text-white text-center" style="text-align: center;">0</p>
-                        <p class="text-xl text-start" style="color: gray; font-size: 16px;">Menonton</p>
                       </div>
                     </div>
               </div>
               @if (Auth::id() !== $author->id)
-              <div class="pb-12 d-flex justify-content-lg-end align-items-center">
-                <form action="{{ route('author.follow', $author->username) }}" method="post">
-                  @csrf
-                <button class="flex btn btn-warning text-white font-bold ml-3 mb-3 px-4" id="followBtn">FOLLOW</button>
-              </form>
+              <div class="pb-12 d-flex justify-content-lg-end align-items-center ml-4">
+                  @if (Auth::user()->follows($author))
+                    <form action="{{ route('author.unfollow', $author->username) }}" method="post">
+                      @csrf
+                      <button class="flex btn btn-warning text-white font-bold ml-3 mb-3 px-4" id="followBtn">UNFOLLOW</button>
+                    </form>
+                  @else
+                    <form action="{{ route('author.follow', $author->username) }}" method="post">
+                      @csrf
+                      <button class="flex btn btn-warning text-white font-bold ml-3 mb-3 px-4" id="followBtn">FOLLOW</button>
+                    </form>
+                  @endif
               </div>
               @endif
 
