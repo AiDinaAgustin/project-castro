@@ -208,9 +208,10 @@
                     </div>
               </div>
               <div class="pb-12 d-flex justify-content-lg-end align-items-center">
-                <button class="flex btn btn-warning text-white font-bold ml-3 mb-3 px-4" id="followBtn">
-                   
-                  FOLLOW</button>
+                <form action="{{ route('author.follow', $author->username) }}" method="post">
+                  @csrf
+                <button class="flex btn btn-warning text-white font-bold ml-3 mb-3 px-4" id="followBtn">FOLLOW</button>
+              </form>
               </div>
 
             </div>

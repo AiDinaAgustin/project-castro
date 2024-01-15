@@ -180,5 +180,5 @@ Route::post('/podcasts/{podcast:slug}/unlike', [PodcastLikeController::class, 'u
 
 //follow dan unfollow
 Route::post('/authors/{author:username}/follow', [FollowerController::class, 'follow'])->name('author.follow')->middleware('auth');
-Route::post('/authors/{author:username}/unfollow', [FollowerController::class, 'unfollow'])->name('author.unfollow')->middleware('auth');
+Route::post('/authors/{author}/unfollow', [FollowerController::class, 'unfollow'])->name('author.unfollow')->middleware('auth');
 
