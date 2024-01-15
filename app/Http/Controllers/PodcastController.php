@@ -127,7 +127,7 @@ public function search(Request $request)
         foreach ($userData as $row) {
             $output .= '
                 <div class="swiper-slide">
-                    <a href="/users/' . $row->id . '">
+                    <a href="/authors/' . $row->username . '">
                         <div class="result-container bg-zinc-800 w-full px-2 rounded-md p-2 mb-2 flex items-center">
                             <div class="w-10 mr-2">
                                 <!-- You can replace the image source with the actual user image -->
