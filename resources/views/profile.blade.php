@@ -32,8 +32,8 @@
     <p class="text-xl text-white font-bold">&commat;{{ $user->username }}</p>
     <div>
       <ul class="flex items-center gap-5 text-xl text-white font-bold">
-        <li>0 Followers</li>
-        <li>0 Following</li>
+        <li>{{ $user->followers()->count() }} Followers</li>
+        <li>{{ $user->followings()->count() }} Following</li>
       </ul>
     </div>
     <div class="w-46 bg-yellow-400 flex items-center gap-2 py-4 px-4 md:px-16 rounded-lg mb-4">
