@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         //         'email' => 'aidina@gmail.com'
         //     ]
         // );
-        User::factory(3)->create();
+        User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
         //     ]
         // );
 
-        Podcast::factory(20)->create();
+        Podcast::factory(30)->create();
 
         // User::create(
         //     [
