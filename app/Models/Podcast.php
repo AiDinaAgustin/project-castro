@@ -45,4 +45,10 @@ class Podcast extends Model
     public function likes(){
         return $this->belongsToMany(User::class, 'podcast_like')->withTimestamps();
     }
+
+    //buatkan untuk hubungan dengan playlistPodcasts
+    public function playlistPodcasts()
+    {
+        return $this->hasMany(PlaylistPodcast::class);
+    }
 }

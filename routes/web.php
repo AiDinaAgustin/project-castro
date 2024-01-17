@@ -13,10 +13,11 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PodcastController;
+use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PodcastLikeController;
 use App\Http\Controllers\DashboardPodcastController;
-use App\Http\Controllers\FollowerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -182,3 +183,5 @@ Route::post('/podcasts/{podcast:slug}/unlike', [PodcastLikeController::class, 'u
 Route::post('/authors/{author:username}/follow', [FollowerController::class, 'follow'])->name('author.follow')->middleware('auth');
 Route::post('/authors/{author:username}/unfollow', [FollowerController::class, 'unfollow'])->name('author.unfollow')->middleware('auth');
 
+//playlist route resource
+Route::resource('/playlists', PlaylistController::class)->middleware('auth');
