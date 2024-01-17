@@ -60,8 +60,8 @@
                 <!-- Slides -->
                 @foreach ($playlists as $playlist)
                   <div class="swiper-slide">
-                    <a href="/playlists/{{ $playlist->id }}">
-                      <div class="cover-music bg-zinc-800 w-40 h-56 rounded-md p-2">
+                      <div class="cover-music bg-zinc-800 w-40 h-59 rounded-md p-2">
+                        <a href="/playlists/{{ $playlist->id }}">
                         <div class="relative w-36">
                           <img class="w-full" src="assets/img/page2.jpg" alt="your music">
                           {{-- <div class="play-btn">
@@ -72,8 +72,13 @@
                           <h4 class="truncate text-white text-base mb-2">{{ $playlist->name }}</h4>
                           <p class="truncate text-slate-400 text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
+                      </a>
+                      <div class="flex justify-end">
+                        <button class="mt-2">
+                            <svg class="h-4 w-4 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="1" />  <circle cx="12" cy="19" r="1" />  <circle cx="12" cy="5" r="1" /></svg>
+                        </button>
                       </div>
-                    </a>
+                      </div>
                   </div>
                 @endforeach
                
