@@ -16,7 +16,8 @@
           </p>
         </a>
         <h2 class="text-slate-500 text-sm leading-6 truncate">
-          377.5k followers
+          {{ $podcast->author->followers()->count()   }}
+          followers
         </h2>
       </div>
     </div>
