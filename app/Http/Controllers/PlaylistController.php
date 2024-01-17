@@ -49,10 +49,16 @@ class PlaylistController extends Controller
      */
     public function show(string $id)
     {
-        return view('playlists.show', [
-            'title' => 'Playlist',
-            'playlists' => Playlist::findOrFail($id)
-        ]);
+        $playlist = Playlist::find($id);
+
+        $podcasts = $playlist->podcasts;
+
+    // Lalu, lewatkan data ke view
+    return view('playlists.show', [
+        'title' => 'Playlist',
+        'playlist' => $playlist,
+        'podcasts' => $podcasts,
+    ]);
     }
 
     /**
