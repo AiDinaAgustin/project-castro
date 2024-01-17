@@ -1,4 +1,4 @@
-@extends('layouts.utama')
+@extends('layouts.main')
 
 @section('content')
     <main class="w-full min-h-screen overflow-x-hidden">
