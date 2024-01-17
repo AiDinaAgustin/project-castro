@@ -17,6 +17,7 @@ use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PodcastLikeController;
+use App\Http\Controllers\PlaylistPodcastController;
 use App\Http\Controllers\DashboardPodcastController;
 
 /*
@@ -185,3 +186,14 @@ Route::post('/authors/{author:username}/unfollow', [FollowerController::class, '
 
 //playlist route resource
 Route::resource('/playlists', PlaylistController::class)->middleware('auth');
+
+//tambah podcast ke podcastplaylist dengan controller playlistpodcast controller resource
+Route::resource('/podcastplaylist', PlaylistPodcastController::class)->middleware('auth');
+
+//playlistpodcast
+Route::get('/podcast/{podcastId}/add-to-playlist', 'PlaylistController@showPodcast')->name('podcast.addToPlaylist');
+Route::post('/podcast/{podcastId}/add-to-playlist', 'PlaylistController@addPodcastToPlaylist')->name('podcast.addPodcastToPlaylist');
+
+Route::post('/store-podcast-to-playlist', 'PlaylistController@storePodcastToPlaylist')->name('store.podcast.to.playlist');
+
+

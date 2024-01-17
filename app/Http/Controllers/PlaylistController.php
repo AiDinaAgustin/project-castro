@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Podcast;
 use App\Models\Playlist;
 use Illuminate\Http\Request;
 
@@ -85,5 +86,42 @@ class PlaylistController extends Controller
         //
     }
 
-    
+        public function showPodcast($podcastId)
+    {
+        $podcast = Podcast::find($podcastId);
+        $playlists = Playlist::all();
+
+        return view('podcasts.show', compact('podcast', 'playlists'));
+    }
+
+        public function addPodcastToPlaylist($podcastId)
+    {
+        $playlistId = request('playlist_id');
+
+        $playlist = Playlist::find($playlistId);
+
+        $podcast = Podcast::find($podcastId);
+
+        // Menambahkan podcast ke playlist menggunakan attach
+        $playlist->podcasts()->attach($podcastId);
+
+        return redirect()->route('playlist.show', ['id' => $playlistId])
+                        ->with('success', 'Podcast successfully added to the playlist.');
+    }
+
+        public function storePodcastToPlaylist(Request $request)
+    {
+        // Validasi request jika diperlukan
+
+        $playlistId = $request->input('playlist_id');
+        $podcastId = $request->input('podcast_id');
+
+        // Menyimpan podcast ke playlist menggunakan metode attach
+        $playlist = Playlist::find($playlistId);
+        $playlist->podcasts()->attach($podcastId);
+
+        // Respon atau pengalihan ke halaman yang sesuai
+        return redirect()->route('podcast'); // Gantilah 'route_name' dengan nama route yang sesuai
+    }
+
 }

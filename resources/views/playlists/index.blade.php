@@ -4,7 +4,7 @@
     <main class="w-full min-h-screen overflow-x-hidden">
         <div class="mb-4">
           @if (session()->has('success'))
-            <div class="alert alert-success bg-yellow-300 col-lg-12 text-white" role="alert">
+            <div class="alert alert-success bg-yellow-300 px-2 rounded-lg col-lg-12 text-white" role="alert">
           {{ session('success') }}
             </div>
             @endif

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Podcast;
 use App\Models\User;
+use App\Models\Podcast;
 use App\Models\Category;
+use App\Models\Playlist;
 use Illuminate\Http\Request;
 
 class PodcastController extends Controller
@@ -257,7 +258,8 @@ public function search(Request $request)
     {
         return view('podcast', [
             "title" => "Single Podcast",
-            "podcast" => $podcast
+            "podcast" => $podcast,
+            'playlists' => Playlist::all()
         ]);
     }
 }

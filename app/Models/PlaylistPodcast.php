@@ -9,6 +9,8 @@ class PlaylistPodcast extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     //Tentukan relasi belongsTo ke model Playlist
     public function playlist()
     {
