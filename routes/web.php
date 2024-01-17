@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\LoginController;
 use Illuminate\Auth\Events\PasswordReset;
@@ -97,6 +98,9 @@ Route::get('/profile', function () {
         "user" => auth()->user()
     ]);
 })->middleware('auth');
+
+//profile resource
+Route::resource('/profile', UserController::class)->middleware('auth');
 
 Route::get("/search",[PodcastController::class,'search']);
 
