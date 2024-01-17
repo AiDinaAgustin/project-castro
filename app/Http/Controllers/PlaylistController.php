@@ -83,7 +83,9 @@ class PlaylistController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Playlist::destroy($id);
+
+        return redirect('/playlists')->with('success', 'Playlist has been deleted!');
     }
 
         public function showPodcast($podcastId)
