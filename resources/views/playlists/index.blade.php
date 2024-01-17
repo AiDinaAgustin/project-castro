@@ -19,7 +19,7 @@
           
               <!-- Modal toggle -->
               <button class="block text-white bg-zinc-800 hover:bg-zinc-900 focus:ring-2 focus:ring-zinc-900 font-medium rounded-lg text-sm px-4 py-4" type="button" data-modal-toggle="authentication-modal">
-                <svg class="h-34 w-34 text-gray-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="12" y1="8" x2="12" y2="16" />  <line x1="8" y1="12" x2="16" y2="12" /></svg>                         
+                <svg class="h-37 w-37 text-gray-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="12" y1="8" x2="12" y2="16" />  <line x1="8" y1="12" x2="16" y2="12" /></svg>                         
 
                 Tambah Playlist
               </button>
@@ -60,10 +60,10 @@
                 <!-- Slides -->
                 @foreach ($playlists as $playlist)
                   <div class="swiper-slide">
-                      <div class="cover-music bg-zinc-800 w-40 h-59 rounded-md p-2">
+                      <div class="cover-music bg-zinc-800 w-40 h-56 rounded-md p-2">
                         <a href="/playlists/{{ $playlist->id }}">
                         <div class="relative w-36">
-                          <img class="w-full" src="assets/img/page2.jpg" alt="your music">
+                          <img class="w-full" src="assets/img/page2.jpg" alt="your playlist">
                           {{-- <div class="play-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
                           </div> --}}
@@ -73,7 +73,7 @@
                           <p class="truncate text-slate-400 text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                       </a>
-                      <div class="flex justify-end">
+                      <div class="flex justify-end mb-2">
                         <form action="/playlists/{{ $playlist->id }}" method="post" class="d-inline py-2">
                           @method('delete')
                           @csrf

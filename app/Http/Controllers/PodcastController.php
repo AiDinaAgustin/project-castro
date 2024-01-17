@@ -259,7 +259,7 @@ public function search(Request $request)
         return view('podcast', [
             "title" => "Single Podcast",
             "podcast" => $podcast,
-            'playlists' => Playlist::all()
+            'playlists' => Playlist::where('user_id', auth()->user()->id)->get()
         ]);
     }
 }
