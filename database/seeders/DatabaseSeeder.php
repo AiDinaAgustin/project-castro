@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         //         'email' => 'aidina@gmail.com'
         //     ]
         // );
-        User::factory(10)->create();
+        // User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
@@ -32,15 +32,15 @@ class DatabaseSeeder extends Seeder
 
         Category::create(
             [
-                'name' => 'Misteri',
-                'slug' => 'misteri'
+                'name' => 'Mistis',
+                'slug' => 'mistis'
             ]
         );
 
         Category::create(
             [
-                'name' => 'Supernatural',
-                'slug' => 'supernatural'
+                'name' => 'Kisah Nyata',
+                'slug' => 'kisah-nyata'
             ]
         );
 
@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
         //     ]
         // );
 
-        Podcast::factory(30)->create();
+        // Podcast::factory(30)->create();
 
         // User::create(
         //     [

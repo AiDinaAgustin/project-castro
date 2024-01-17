@@ -69,7 +69,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="image" class="form-label text-lg text-white">Podcast Image</label>
+            <label for="image" class="form-label text-lg text-white">Your Image</label>
             <img class="img-preview img-fluid mb-2 col-sm-3">
             <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
             @error('image')

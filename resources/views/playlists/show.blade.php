@@ -8,7 +8,7 @@
           {{ session('success') }}
             </div>
             @endif
-            <h3 class="text-2xl text-white font-bold mb-3">Playlists</h3>
+            <h3 class="text-2xl text-white font-bold mb-3">Playlists {{ $playlist->name }}</h3>
             <!-- Slider main container -->
             <div class="swiper">
               <!-- Additional required wrapper -->
