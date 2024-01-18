@@ -134,7 +134,16 @@
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image">
                             Image
                           </label>
-                          <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+                          <div class="w-full flex justify-center items-center">
+                            <img id="img-preview" class="w-36 object-cover">
+                        </div>
+                        <div class="flex items-center border-b border-gray-300 py-2">
+                            <span class="sr-only">Choose File</span>
+                            <input onchange="previewImage()" type="file" id="image" name="image" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold" />
+                            @error('image')
+                            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                            @enderror
+                        </div>
                         </div>
                       </div>
                     </form>
@@ -159,6 +168,20 @@
         </a>
     </div>
   </main>
+<script>
+  function previewImage() {
+      const image = document.querySelector('#image');
+      const imgPreview = document.querySelector('#img-preview');
 
+      imgPreview.style.display = 'block';
+
+      const oFReader = new FileReader();
+      oFReader.readAsDataURL(image.files[0]);
+
+      oFReader.onload = function(oFREvent) {
+          imgPreview.src = oFREvent.target.result;
+      }
+  }
+</script>
 
 @endsection
