@@ -35,7 +35,7 @@ use App\Http\Controllers\DashboardPodcastController;
 Route::get('/', [PodcastController::class, 'index']);
 
 //halaman single podcast
-Route::get('/podcasts/{podcast:slug}', [PodcastController::class, 'show'])->name('podcast');
+Route::get('/podcasts/{podcast:slug}', [PodcastController::class, 'show'])->name('podcast')->middleware('auth');
 
 //route category
 Route::get('/categories/{category:slug}', function (Category $category) {

@@ -224,13 +224,13 @@
         </div>
       </div>
       <!-- Langganan -->
-      <div class="w-full mb-4">
+      {{-- <div class="w-full mb-4">
         <div class="w-full bg-white p-8 rounded-lg shadow-md">
           <h2 class="text-2xl font-semibold mb-4">Berlangganan Untuk Konten Premium!</h2>
           <p class="text-gray-600 mb-6">Dapatkan akses ke konten eksklusif dan manfaat lainnya dengan berlangganan sekarang.</p>
           
           <!-- Form Berlangganan -->
-          <form action="#" method="POST">
+          <form action="" method="POST">
             <div class="mb-4">
               <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Alamat Email</label>
               <input type="email" id="email" name="email" class="w-full border rounded-md py-2 px-3 text-gray-700">
@@ -239,6 +239,6 @@
             <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Berlangganan Sekarang</button>
           </form>
         </div>
-      </div>
+      </div> --}}
 </main>
 @endsection
