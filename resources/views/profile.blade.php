@@ -134,16 +134,24 @@
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="image">
                             Image
                           </label>
-                          <div class="w-full flex justify-center items-center">
+                          <input type="hidden" name="oldImage" value="{{ $user->image }}">
+                          {{-- <div class="w-full flex justify-center items-center">
                             <img id="img-preview" class="w-36 object-cover">
-                        </div>
-                        <div class="flex items-center border-b border-gray-300 py-2">
+                          </div> --}}
+                        {{-- <div class="flex items-center border-b border-gray-300 py-2"> --}}
                             <span class="sr-only">Choose File</span>
+                            @if ($user->image)
+                            <img src="{{ asset('storage/' . $user->image) }}"id="img-preview" class="w-36 object-cover mb-2">
+                            @else
+                            <div class="w-full flex justify-center items-center">
+                              <img id="img-preview" class="w-36 object-cover mb02">
+                            </div>
+                            @endif
                             <input onchange="previewImage()" type="file" id="image" name="image" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold" />
                             @error('image')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                             @enderror
-                        </div>
+                        {{-- </div> --}}
                         </div>
                       </div>
                     </form>
