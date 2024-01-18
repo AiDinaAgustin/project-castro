@@ -92,12 +92,12 @@ Route::get('/cari', function (Category $category) {
 });
 
 //profile
-Route::get('/profile', function () {
-    return view('profile', [
-        "title" => "Profile",
-        "user" => auth()->user()
-    ]);
-})->middleware('auth');
+// Route::get('/profile', function () {
+//     return view('profile', [
+//         "title" => "Profile",
+//         "user" => auth()->user()
+//     ]);
+// })->middleware('auth');
 
 //profile resource
 Route::resource('/profile', UserController::class)->middleware('auth');

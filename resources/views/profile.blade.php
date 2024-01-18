@@ -58,7 +58,7 @@
                   <!-- Modal header -->
                   <div class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600">
                       <h3 class="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white">
-                          Terms of Service
+                          Update Profile
                       </h3>
                       <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="default-modal">
                           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
@@ -66,19 +66,21 @@
                   </div>
                   <!-- Modal body -->
                   <div class="p-6 space-y-6">
-                    <form class="w-full max-w-lg">
+                    <form class="w-full max-w-lg" method="POST" action="/profile/{{ $user->name }}" enctype="multipart/form-data">
+                      @method('put')
+                      @csrf
                       <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                             Name
                           </label>
-                          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text">
+                          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text" name="name" value="{{ old('name', $user->name) }}">
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             Username
                           </label>
-                          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="username" type="text">
+                          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="username" type="text" name="username" value="{{ old('username', $user->username) }}">
                         </div>
                       </div>
                       <div class="flex flex-wrap -mx-3 mb-6">
@@ -86,15 +88,15 @@
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
                             Email
                           </label>
-                          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email">
+                          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" name="email" value="{{ old('email', $user->email) }}">
                         </div>
                       </div>
-                      <div class="flex flex-wrap -mx-3 mb-2">
+                      <div class=" hidden flex flex-wrap -mx-3">
                         <div class="w-full px-3">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="password">
                             Password
                           </label>
-                          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="password" type="password" name="password">
+                          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="password" type="password" name="password" value="{{ old('password', $user->password) }}">
                         </div>
                       </div>
                       <div class="flex flex-wrap -mx-3 mb-2">
@@ -102,7 +104,7 @@
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="birth">
                             Birth
                           </label>
-                          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="birth" type="date" name="birth">
+                          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="birth" type="date" name="birth" value="{{ old('birth', $user->birth) }}">
                         </div>
                       </div>
                       <div class="flex flex-wrap -mx-3 mb-2">
@@ -112,8 +114,14 @@
                           </label>
                           <div class="relative">
                             <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="gender" name="gender">
-                              <option value="MALE">Male</option>
-                              <option value="FEMALE">Female</option>
+                              {{-- <option value="gender">{{ $user->gender }}</option> --}}
+                              @if($user->gender == 'MALE')
+                                    <option value="FEMALE">Female</option>
+                                    <option value="MALE" selected>Male</option>
+                              @else
+                                  <option value="MALE">Male</option>
+                                  <option value="FEMALE" selected>Female</option>
+                              @endif
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                               <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
