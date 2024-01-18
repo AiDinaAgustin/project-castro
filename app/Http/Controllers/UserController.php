@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('profile', [
+        return view('profile.index', [
             "title" => "Profile",
             "user" => auth()->user()
         ]);
@@ -33,7 +33,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'username' => 'required|min:3|max:255|unique:users',
+            'email' => 'required|email:dns|unique:users',
+            'password' => 'required|min:5|max:255',
+            'gender' => 'required|in:MALE,FEMALE',
+            'birth' => 'required|date|before_or_equal:',
+             'image' => 'image|file|max:1999'
+            
+        ]);
+ 
+        //jika user mengupload gambar
+        if($request->file('image')){
+         $validatedData['image'] = $request->file('image')->store('user-images');
+         }
+ 
+        User::create($validatedData);
+        
+        return redirect('/profile')->with('success', 'Berhasil menambahkan user baru');
     }
 
     /**
@@ -49,7 +68,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('profile.edit', [
+            "title" => "Edit Profile",
+            "user" => $user
+        ]);
     }
 
     /**
@@ -57,29 +79,32 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'username' => 'required|min:3|max:255|unique:users',
-            'email' => 'required|email:dns|unique:users',
-            'password' => 'required|min:5|max:255',
-            'gender' => 'required|in:MALE,FEMALE',
-            'birth' => 'required|date|before_or_equal:',
-             'image' => 'image|file|max:1999'
+        // $rules = [
+        //     'name' => 'required|max:255',
+        //     'username' => 'required|min:3|max:255|unique:users',
+        //     'email' => 'required|email:dns|unique:users',
+        //     'password' => 'required|min:5|max:255',
+        //     'gender' => 'required|in:MALE,FEMALE',
+        //     'birth' => 'required|date|before_or_equal:',
+        //     'image' => 'image|file|max:1999'
             
-        ]);
+        // ];
 
-        if($request->file('image')){
-            //jika user mengupload gambar maka gambar yang lama akan dihapus
-            if($request->oldImage){
-                Storage::delete($request->oldImage);
-            }
-            $validatedData['image'] = $request->file('image')->store('podcast-images');
-        }
+        
+        // $validatedData = $request->validate($rules);
 
-        $user::where('id', $user->id)
-            ->update($validatedData);
+        // if($request->file('image')){
+        //     //jika user mengupload gambar maka gambar yang lama akan dihapus
+        //     if($request->oldImage){
+        //         Storage::delete($request->oldImage);
+        //     }
+        //     $validatedData['image'] = $request->file('image')->store('podcast-images');
+        // }
 
-        return redirect('/profile')->with('success', 'Registrasi berhasil! Silakan login.');
+        // $user::where('id', $user->id)
+        //     ->update($validatedData);
+
+        // return redirect('/profile')->with('success', 'Profile berhasil diupdate');
     }
 
     /**

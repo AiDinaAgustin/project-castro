@@ -76,7 +76,7 @@
             <trix-editor input="body"></trix-editor>
         </div>
         <button type="submit" class="btn btn-primary bg-primary">Update Podcast</button>
-      </form>
+    </form>
 </div>
 
 <script>
