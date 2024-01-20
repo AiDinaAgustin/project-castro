@@ -227,7 +227,11 @@
 
             </div>
             <div class="col-lg-5 col-12 d-flex justify-content-lg-end align-items-center">
+              @if ($author->image)
+              <img class="mt-5 rounded-full" src="{{ asset('storage/' . $author->image) }}" alt="" width="250px">
+              @else
               <img class="mt-5" src="/assets/img/Ellipse 46.png" alt="" width="250px">
+              @endif
               
             </div>
            

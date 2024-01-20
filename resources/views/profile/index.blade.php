@@ -77,8 +77,8 @@
                   </div>
                   <!-- Modal body -->
                   <div class="p-6 space-y-6">
-                <form class="w-full max-w-lg" method="POST" action="/profile/{{ $user->id }}" enctype="multipart/form-data">
-                    @method('put')
+                <form class="w-full max-w-lg">
+                    {{-- @method('put') --}}
                       @csrf
                       <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -168,7 +168,7 @@
                         {{-- </div> --}}
                         </div>
                       </div>
-                      <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
+                      {{-- <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button> --}}
                     </form>
                   </div>
                   <!-- Modal footer -->

@@ -195,9 +195,9 @@ Route::resource('/playlists', PlaylistController::class)->middleware('auth');
 Route::resource('/podcastplaylist', PlaylistPodcastController::class)->middleware('auth');
 
 //playlistpodcast
-Route::get('/podcast/{podcastId}/add-to-playlist', 'PlaylistController@showPodcast')->name('podcast.addToPlaylist');
-Route::post('/podcast/{podcastId}/add-to-playlist', 'PlaylistController@addPodcastToPlaylist')->name('podcast.addPodcastToPlaylist');
+// Route::get('/podcast/{podcastId}/add-to-playlist', 'PlaylistController@showPodcast')->name('podcast.addToPlaylist');
+// Route::post('/podcast/{podcastId}/add-to-playlist', 'PlaylistController@addPodcastToPlaylist')->name('podcast.addPodcastToPlaylist');
 
-Route::post('/store-podcast-to-playlist', 'PlaylistController@storePodcastToPlaylist')->name('store.podcast.to.playlist');
+// Route::post('/store-podcast-to-playlist', 'PlaylistController@storePodcastToPlaylist')->name('store.podcast.to.playlist');
 
 
